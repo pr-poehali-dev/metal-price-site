@@ -131,7 +131,7 @@ const Index = () => {
   const sendToEmail = () => {
     const subject = 'Новая заявка с сайта Краев Металл Компани';
     const body = `Имя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\n\nСообщение:\n${formData.message}`;
-    const mailtoUrl = `mailto:info@metallprom.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:KraevK.working@yandex.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
   };
 
@@ -724,8 +724,9 @@ const Index = () => {
                     <Icon name="Mail" className="h-6 w-6 text-accent mt-1" />
                     <div>
                       <p className="font-semibold mb-1">Email</p>
-                      <p className="text-sm text-muted-foreground">info@metallprom.ru</p>
-                      <p className="text-sm text-muted-foreground">sales@metallprom.ru</p>
+                      <a href="mailto:KraevK.working@yandex.com" className="text-sm text-muted-foreground hover:text-accent transition-colors block">
+                        KraevK.working@yandex.com
+                      </a>
                     </div>
                   </div>
 
