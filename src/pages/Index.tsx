@@ -188,7 +188,29 @@ const Index = () => {
             </button>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <Button 
+              size="icon" 
+              variant="ghost" 
+              className="hidden sm:flex hover:bg-green-500/10 hover:text-green-500"
+              asChild
+            >
+              <a href="https://wa.me/79185086059" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                <Icon name="MessageCircle" className="h-5 w-5" />
+              </a>
+            </Button>
+
+            <Button 
+              size="icon" 
+              variant="ghost" 
+              className="hidden sm:flex hover:bg-blue-500/10 hover:text-blue-500"
+              asChild
+            >
+              <a href="https://t.me/+79185086059" target="_blank" rel="noopener noreferrer" title="Telegram">
+                <Icon name="Send" className="h-5 w-5" />
+              </a>
+            </Button>
+
             <Button className="hidden md:flex" asChild>
               <a href="tel:+79185086059">
                 <Icon name="Phone" className="mr-2 h-4 w-4" />
@@ -252,6 +274,20 @@ const Index = () => {
               >
                 Контакты
               </button>
+              <div className="flex gap-2 mt-2">
+                <Button variant="outline" className="flex-1" asChild>
+                  <a href="https://wa.me/79185086059" target="_blank" rel="noopener noreferrer">
+                    <Icon name="MessageCircle" className="mr-2 h-4 w-4 text-green-500" />
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button variant="outline" className="flex-1" asChild>
+                  <a href="https://t.me/+79185086059" target="_blank" rel="noopener noreferrer">
+                    <Icon name="Send" className="mr-2 h-4 w-4 text-blue-500" />
+                    Telegram
+                  </a>
+                </Button>
+              </div>
               <Button className="w-full mt-2" asChild>
                 <a href="tel:+79185086059">
                   <Icon name="Phone" className="mr-2 h-4 w-4" />
