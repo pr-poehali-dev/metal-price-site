@@ -79,13 +79,13 @@ const Index = () => {
   };
 
   const sendToWhatsApp = () => {
-    const message = `Новая заявка с сайта МеталлПром\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\nСообщение: ${formData.message}`;
+    const message = `Новая заявка с сайта Краев Металл Компани\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\nСообщение: ${formData.message}`;
     const whatsappUrl = `https://wa.me/79951234567?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const sendToEmail = () => {
-    const subject = 'Новая заявка с сайта МеталлПром';
+    const subject = 'Новая заявка с сайта Краев Металл Компани';
     const body = `Имя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\n\nСообщение:\n${formData.message}`;
     const mailtoUrl = `mailto:info@metallprom.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
@@ -117,7 +117,7 @@ const Index = () => {
         <div className="container flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
             <Icon name="Factory" className="h-8 w-8 text-accent" />
-            <span className="text-xl font-bold">МеталлПром</span>
+            <span className="text-xl font-bold">Краев Металл Компани</span>
           </div>
           
           <div className="hidden md:flex items-center gap-6">
@@ -402,7 +402,7 @@ const Index = () => {
               <CardContent className="p-8">
                 <div className="grid gap-8 md:grid-cols-2">
                   <div>
-                    <h3 className="text-xl font-semibold mb-4">МеталлПром</h3>
+                    <h3 className="text-xl font-semibold mb-4">Краев Металл Компани</h3>
                     <p className="text-muted-foreground mb-4">
                       Наша компания специализируется на поставках металлопроката с 2010 года. 
                       Мы работаем напрямую с ведущими металлургическими комбинатами России.
@@ -636,7 +636,7 @@ const Index = () => {
 
       <footer className="py-8 bg-primary/90 text-primary-foreground/80 border-t border-primary-foreground/10">
         <div className="container px-4 text-center">
-          <p>&copy; 2024 МеталлПром. Все права защищены.</p>
+          <p>&copy; 2024 Краев Металл Компани. Все права защищены.</p>
         </div>
       </footer>
     </div>
