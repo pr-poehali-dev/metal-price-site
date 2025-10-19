@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -55,6 +55,27 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set([...prev, entry.target.id]));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   const calculatePrice = () => {
     if (!calcWeight || !calcProduct) return;
@@ -242,7 +263,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent"></div>
       </section>
 
-      <section id="catalog" className="py-16 bg-background">
+      <section id="catalog" className={`py-16 bg-background transition-all duration-700 ${visibleSections.has('catalog') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Каталог продукции</h2>
@@ -288,7 +309,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="price" className="py-16 bg-muted/30">
+      <section id="price" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('price') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Прайс-лист</h2>
@@ -340,7 +361,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="calculator" className="py-16 bg-background">
+      <section id="calculator" className={`py-16 bg-background transition-all duration-700 ${visibleSections.has('calculator') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Калькулятор стоимости</h2>
@@ -407,7 +428,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="delivery" className="py-16 bg-muted/30">
+      <section id="delivery" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('delivery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Доставка</h2>
@@ -457,7 +478,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-16 bg-background">
+      <section id="about" className={`py-16 bg-background transition-all duration-700 ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">О компании</h2>
@@ -510,7 +531,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-16 bg-muted/30">
+      <section id="contacts" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Оставить заявку</h2>
