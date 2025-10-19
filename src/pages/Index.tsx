@@ -57,6 +57,7 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [counters, setCounters] = useState({ years: 0, warehouse: 0, clients: 0 });
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -97,6 +98,19 @@ const Index = () => {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const calculatePrice = () => {
     if (!calcWeight || !calcProduct) return;
@@ -1117,6 +1131,17 @@ const Index = () => {
           <p>&copy; 2024 Краев Металл Компани. Все права защищены.</p>
         </div>
       </footer>
+
+      {showScrollTop && (
+        <Button
+          size="icon"
+          className="fixed bottom-6 right-6 z-40 h-12 w-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+          onClick={scrollToTop}
+          title="Наверх"
+        >
+          <Icon name="ArrowUp" className="h-5 w-5" />
+        </Button>
+      )}
     </div>
   );
 };
