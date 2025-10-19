@@ -283,7 +283,14 @@ const Index = () => {
               <TabsContent key={category.category} value={category.category}>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                   {category.items.map((item, idx) => (
-                    <Card key={idx} className="hover:shadow-lg transition-shadow">
+                    <Card 
+                      key={idx} 
+                      className="hover:shadow-lg transition-all hover:scale-105 opacity-0 animate-fade-in"
+                      style={{ 
+                        animationDelay: `${idx * 100}ms`,
+                        animationFillMode: 'forwards'
+                      }}
+                    >
                       <CardHeader>
                         <CardTitle className="text-lg">{item.name}</CardTitle>
                         <CardDescription>{item.description}</CardDescription>
@@ -436,7 +443,10 @@ const Index = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            <Card>
+            <Card 
+              className="opacity-0 animate-fade-in hover:scale-105 transition-transform"
+              style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}
+            >
               <CardHeader>
                 <Icon name="Truck" className="h-12 w-12 text-accent mb-4" />
                 <CardTitle>По Москве и МО</CardTitle>
@@ -449,7 +459,10 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card 
+              className="opacity-0 animate-fade-in hover:scale-105 transition-transform"
+              style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}
+            >
               <CardHeader>
                 <Icon name="MapPin" className="h-12 w-12 text-accent mb-4" />
                 <CardTitle>По России</CardTitle>
@@ -462,7 +475,10 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card 
+              className="opacity-0 animate-fade-in hover:scale-105 transition-transform"
+              style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}
+            >
               <CardHeader>
                 <Icon name="Store" className="h-12 w-12 text-accent mb-4" />
                 <CardTitle>Самовывоз</CardTitle>
