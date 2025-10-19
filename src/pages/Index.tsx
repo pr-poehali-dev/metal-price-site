@@ -54,6 +54,7 @@ const Index = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const calculatePrice = () => {
     if (!calcWeight || !calcProduct) return;
@@ -72,6 +73,7 @@ const Index = () => {
     setActiveSection(section);
     const element = document.getElementById(section);
     element?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -144,11 +146,75 @@ const Index = () => {
             </button>
           </div>
 
-          <Button className="hidden md:flex">
-            <Icon name="Phone" className="mr-2 h-4 w-4" />
-            +7 (495) 123-45-67
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button className="hidden md:flex">
+              <Icon name="Phone" className="mr-2 h-4 w-4" />
+              +7 (495) 123-45-67
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} className="h-6 w-6" />
+            </Button>
+          </div>
         </div>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t bg-background/98 backdrop-blur animate-fade-in">
+            <div className="container px-4 py-4 space-y-3">
+              <button
+                onClick={() => scrollToSection('hero')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                Главная
+              </button>
+              <button
+                onClick={() => scrollToSection('catalog')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                Каталог
+              </button>
+              <button
+                onClick={() => scrollToSection('price')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                Прайс-лист
+              </button>
+              <button
+                onClick={() => scrollToSection('calculator')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                Калькулятор
+              </button>
+              <button
+                onClick={() => scrollToSection('delivery')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                Доставка
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                О компании
+              </button>
+              <button
+                onClick={() => scrollToSection('contacts')}
+                className="block w-full text-left py-2 px-4 rounded-lg hover:bg-accent/10 transition-colors"
+              >
+                Контакты
+              </button>
+              <Button className="w-full mt-2">
+                <Icon name="Phone" className="mr-2 h-4 w-4" />
+                +7 (495) 123-45-67
+              </Button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <section id="hero" className="relative py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80">
