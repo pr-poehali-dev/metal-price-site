@@ -56,6 +56,7 @@ const Index = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [counters, setCounters] = useState({ years: 0, warehouse: 0, clients: 0 });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,6 +64,26 @@ const Index = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisibleSections((prev) => new Set([...prev, entry.target.id]));
+            
+            if (entry.target.id === 'about') {
+              const animateCounter = (target: number, setter: (val: number) => void) => {
+                let current = 0;
+                const increment = target / 60;
+                const timer = setInterval(() => {
+                  current += increment;
+                  if (current >= target) {
+                    setter(target);
+                    clearInterval(timer);
+                  } else {
+                    setter(Math.floor(current));
+                  }
+                }, 30);
+              };
+
+              animateCounter(15, (val) => setCounters((prev) => ({ ...prev, years: val })));
+              animateCounter(5000, (val) => setCounters((prev) => ({ ...prev, warehouse: val })));
+              animateCounter(1200, (val) => setCounters((prev) => ({ ...prev, clients: val })));
+            }
           }
         });
       },
@@ -103,7 +124,7 @@ const Index = () => {
 
   const sendToWhatsApp = () => {
     const message = `Новая заявка с сайта Краев Металл Компани\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\nСообщение: ${formData.message}`;
-    const whatsappUrl = `https://wa.me/79951234567?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/79185086059?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -168,9 +189,11 @@ const Index = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button className="hidden md:flex">
-              <Icon name="Phone" className="mr-2 h-4 w-4" />
-              +7 (495) 123-45-67
+            <Button className="hidden md:flex" asChild>
+              <a href="tel:+79185086059">
+                <Icon name="Phone" className="mr-2 h-4 w-4" />
+                +7 (918) 508-60-59
+              </a>
             </Button>
 
             <Button
@@ -229,9 +252,11 @@ const Index = () => {
               >
                 Контакты
               </button>
-              <Button className="w-full mt-2">
-                <Icon name="Phone" className="mr-2 h-4 w-4" />
-                +7 (495) 123-45-67
+              <Button className="w-full mt-2" asChild>
+                <a href="tel:+79185086059">
+                  <Icon name="Phone" className="mr-2 h-4 w-4" />
+                  +7 (918) 508-60-59
+                </a>
               </Button>
             </div>
           </div>
@@ -500,7 +525,42 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">О компании</h2>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid gap-6 md:grid-cols-3 mb-12">
+              <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
+                <CardContent className="p-0">
+                  <Icon name="Calendar" className="h-12 w-12 text-accent mx-auto mb-4" />
+                  <div className="text-5xl font-bold text-accent mb-2">
+                    {counters.years}+
+                  </div>
+                  <p className="text-lg font-semibold mb-1">лет на рынке</p>
+                  <p className="text-sm text-muted-foreground">Опыт и надежность</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
+                <CardContent className="p-0">
+                  <Icon name="Warehouse" className="h-12 w-12 text-accent mx-auto mb-4" />
+                  <div className="text-5xl font-bold text-accent mb-2">
+                    {counters.warehouse.toLocaleString('ru-RU')}
+                  </div>
+                  <p className="text-lg font-semibold mb-1">м² склад</p>
+                  <p className="text-sm text-muted-foreground">Всегда в наличии</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
+                <CardContent className="p-0">
+                  <Icon name="Users" className="h-12 w-12 text-accent mx-auto mb-4" />
+                  <div className="text-5xl font-bold text-accent mb-2">
+                    {counters.clients}+
+                  </div>
+                  <p className="text-lg font-semibold mb-1">клиентов</p>
+                  <p className="text-sm text-muted-foreground">Доверяют нам</p>
+                </CardContent>
+              </Card>
+            </div>
+
             <Card>
               <CardContent className="p-8">
                 <div className="grid gap-8 md:grid-cols-2">
@@ -517,26 +577,26 @@ const Index = () => {
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <Icon name="CheckCircle" className="h-6 w-6 text-accent mt-1" />
+                      <Icon name="Award" className="h-6 w-6 text-accent mt-1" />
                       <div>
-                        <p className="font-semibold">Более 13 лет на рынке</p>
-                        <p className="text-sm text-muted-foreground">Опыт и надежность</p>
+                        <p className="font-semibold">Сертифицированная продукция</p>
+                        <p className="text-sm text-muted-foreground">Все товары с паспортами качества</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <Icon name="CheckCircle" className="h-6 w-6 text-accent mt-1" />
+                      <Icon name="Truck" className="h-6 w-6 text-accent mt-1" />
                       <div>
-                        <p className="font-semibold">Собственный склад 5000 м²</p>
-                        <p className="text-sm text-muted-foreground">Всегда в наличии</p>
+                        <p className="font-semibold">Собственный автопарк</p>
+                        <p className="text-sm text-muted-foreground">Быстрая доставка по Москве и МО</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <Icon name="CheckCircle" className="h-6 w-6 text-accent mt-1" />
+                      <Icon name="Headphones" className="h-6 w-6 text-accent mt-1" />
                       <div>
-                        <p className="font-semibold">Более 1000 клиентов</p>
-                        <p className="text-sm text-muted-foreground">Доверяют нам</p>
+                        <p className="font-semibold">Поддержка 24/7</p>
+                        <p className="text-sm text-muted-foreground">Всегда на связи для консультаций</p>
                       </div>
                     </div>
                   </div>
@@ -654,8 +714,9 @@ const Index = () => {
                     <Icon name="Phone" className="h-6 w-6 text-accent mt-1" />
                     <div>
                       <p className="font-semibold mb-1">Телефон</p>
-                      <p className="text-sm text-muted-foreground">+7 (495) 123-45-67</p>
-                      <p className="text-sm text-muted-foreground">+7 (495) 123-45-68</p>
+                      <a href="tel:+79185086059" className="text-sm text-muted-foreground hover:text-accent transition-colors block">
+                        +7 (918) 508-60-59
+                      </a>
                     </div>
                   </div>
 
@@ -700,7 +761,7 @@ const Index = () => {
                       <Button
                         variant="outline"
                         className="border-green-600 text-green-600 hover:bg-green-50"
-                        onClick={() => window.open('https://wa.me/79951234567', '_blank')}
+                        onClick={() => window.open('https://wa.me/79185086059', '_blank')}
                       >
                         <Icon name="MessageCircle" className="mr-2 h-4 w-4" />
                         Написать в WhatsApp
