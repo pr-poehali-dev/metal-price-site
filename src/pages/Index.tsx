@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -202,14 +202,14 @@ const Index = () => {
                   </thead>
                   <tbody>
                     {metalProducts.map((category) => (
-                      <>
-                        <tr key={category.category} className="bg-muted/50">
+                      <React.Fragment key={category.category}>
+                        <tr className="bg-muted/50">
                           <td colSpan={3} className="py-2 px-4 font-semibold text-sm">
                             {category.category}
                           </td>
                         </tr>
                         {category.items.map((item, idx) => (
-                          <tr key={idx} className="border-b hover:bg-muted/20 transition-colors">
+                          <tr key={`${category.category}-${idx}`} className="border-b hover:bg-muted/20 transition-colors">
                             <td className="py-3 px-4">{item.name}</td>
                             <td className="py-3 px-4 text-muted-foreground">{item.description}</td>
                             <td className="py-3 px-4 text-right font-semibold">
@@ -217,7 +217,7 @@ const Index = () => {
                             </td>
                           </tr>
                         ))}
-                      </>
+                      </React.Fragment>
                     ))}
                   </tbody>
                 </table>
