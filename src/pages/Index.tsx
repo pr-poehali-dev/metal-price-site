@@ -864,7 +864,7 @@ const Index = () => {
 
             <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
               <img 
-                src="https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/8d06b4ba-5bba-436d-9e24-bf3222595e73.jpg" 
+                src="https://cdn.poehali.dev/files/de7a9ac8-4117-4c62-9b59-b1f7c9e4be99.jpeg" 
                 alt="Погрузка и доставка" 
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
               />
