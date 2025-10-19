@@ -607,7 +607,173 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section id="reviews" className={`py-16 transition-all duration-700 ${visibleSections.has('reviews') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="container px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Отзывы клиентов</h2>
+            <p className="text-muted-foreground">Что говорят о нас наши партнеры</p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Icon name="User" className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Иван Петров</p>
+                    <p className="text-sm text-muted-foreground">ООО "СтройКомплект"</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="Star" className="h-4 w-4 fill-accent text-accent" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Работаем с Краев Металл Компани уже 3 года. Всегда качественная продукция, 
+                  быстрая доставка и адекватные цены. Рекомендую!
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Icon name="User" className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Мария Соколова</p>
+                    <p className="text-sm text-muted-foreground">ИП Соколова М.А.</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="Star" className="h-4 w-4 fill-accent text-accent" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Отличная компания! Помогли подобрать нужный металлопрокат, оформили все документы. 
+                  Особенно порадовала оперативность менеджеров.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Icon name="User" className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Алексей Краснов</p>
+                    <p className="text-sm text-muted-foreground">АО "МеталлСтрой"</p>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="Star" className="h-4 w-4 fill-accent text-accent" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Большой ассортимент, все позиции в наличии на складе. 
+                  Цены конкурентные, доставка точно в срок. Очень довольны сотрудничеством!
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="container px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Часто задаваемые вопросы</h2>
+            <p className="text-muted-foreground">Ответы на популярные вопросы о нашей работе</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            <Card className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <Icon name="HelpCircle" className="h-5 w-5 text-accent mt-1" />
+                  Какие способы оплаты вы принимаете?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Мы принимаем безналичный расчет для юридических лиц и ИП, наличные и переводы для физических лиц. 
+                  Возможна отсрочка платежа для постоянных клиентов.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <Icon name="HelpCircle" className="h-5 w-5 text-accent mt-1" />
+                  Как быстро осуществляется доставка?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  По Москве и МО доставка осуществляется в течение 1-2 дней с момента заказа. 
+                  В регионы России — от 3 до 7 дней в зависимости от удаленности.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <Icon name="HelpCircle" className="h-5 w-5 text-accent mt-1" />
+                  Предоставляете ли вы сертификаты качества?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Да, на всю нашу продукцию предоставляются паспорта качества и сертификаты соответствия от производителей. 
+                  Документы передаются вместе с товаром.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <Icon name="HelpCircle" className="h-5 w-5 text-accent mt-1" />
+                  Можно ли забрать товар самовывозом?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Конечно! У нас есть склад площадью 5000 м² в Москве. 
+                  Вы можете забрать заказ самостоятельно в удобное для вас время после согласования с менеджером.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-start gap-3">
+                  <Icon name="HelpCircle" className="h-5 w-5 text-accent mt-1" />
+                  Есть ли у вас минимальная партия заказа?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Мы работаем как с крупными, так и с мелкими заказами. 
+                  Минимальной партии нет — продаем от 1 единицы товара. Цена зависит от объема заказа.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className={`py-16 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Оставить заявку</h2>
