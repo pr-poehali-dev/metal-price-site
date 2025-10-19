@@ -313,13 +313,22 @@ const Index = () => {
         )}
       </nav>
 
-      <section id="hero" className="relative py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80">
-        <div className="container px-4">
+      <section id="hero" className="relative h-[600px] md:h-[700px] overflow-hidden">
+        <div className="absolute inset-0 animate-fade-in">
+          <img 
+            src="https://cdn.poehali.dev/files/c52ad37f-0bbe-49a5-9727-00ff797668eb.jpeg" 
+            alt="Металлопрокат - склад" 
+            className="w-full h-full object-cover animate-scale-in"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+        </div>
+        
+        <div className="container px-4 relative h-full flex items-center">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in drop-shadow-lg">
               Металлопрокат от производителя
             </h1>
-            <p className="text-xl text-primary-foreground/90 mb-8 animate-fade-in">
+            <p className="text-xl text-white/95 mb-8 animate-fade-in drop-shadow-md">
               Широкий ассортимент металлопродукции по актуальным ценам. Доставка по всей России.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in">
@@ -327,7 +336,7 @@ const Index = () => {
                 <Icon name="Package" className="mr-2 h-5 w-5" />
                 Смотреть каталог
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={() => scrollToSection('calculator')}>
+              <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30" onClick={() => scrollToSection('calculator')}>
                 <Icon name="Calculator" className="mr-2 h-5 w-5" />
                 Рассчитать стоимость
               </Button>
