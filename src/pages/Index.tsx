@@ -842,7 +842,7 @@ const Index = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
             <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
               <img 
-                src="https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/94717d9b-0809-4942-870d-065a4f859a99.jpg" 
+                src="https://cdn.poehali.dev/files/f06d658a-0f0f-452b-8933-89e0a117f0c9.jpeg" 
                 alt="Складской комплекс" 
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
               />
