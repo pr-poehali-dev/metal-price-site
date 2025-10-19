@@ -773,6 +773,117 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="gallery" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('gallery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="container px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Наш склад и продукция</h2>
+            <p className="text-muted-foreground">Современный складской комплекс площадью 5000 м²</p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/94717d9b-0809-4942-870d-065a4f859a99.jpg" 
+                alt="Складской комплекс" 
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                <p className="text-white font-semibold">Складской комплекс</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/f1fea013-122b-4693-9207-8ae56f9ac613.jpg" 
+                alt="Металлопрокат на складе" 
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                <p className="text-white font-semibold">Металлопрокат</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/8d06b4ba-5bba-436d-9e24-bf3222595e73.jpg" 
+                alt="Погрузка и доставка" 
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                <p className="text-white font-semibold">Погрузка и доставка</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <img 
+                src="https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/b8b85f09-3cbd-48eb-8180-5eb3dd72dd66.jpg" 
+                alt="Трубы и профили" 
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                <p className="text-white font-semibold">Трубы и профили</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 max-w-3xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Warehouse" className="h-6 w-6 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-1">Современный склад</p>
+                      <p className="text-sm text-muted-foreground">
+                        5000 м² складских помещений с системой климат-контроля
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Package" className="h-6 w-6 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-1">Всегда в наличии</p>
+                      <p className="text-sm text-muted-foreground">
+                        Широкий ассортимент металлопроката на складе
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="TruckIcon" className="h-6 w-6 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-1">Собственный транспорт</p>
+                      <p className="text-sm text-muted-foreground">
+                        Быстрая доставка своими силами по Москве и области
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <Icon name="Shield" className="h-6 w-6 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold mb-1">Качество гарантировано</p>
+                      <p className="text-sm text-muted-foreground">
+                        Вся продукция с сертификатами и паспортами качества
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section id="contacts" className={`py-16 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="container px-4">
           <div className="text-center mb-12">
