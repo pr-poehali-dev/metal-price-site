@@ -37,7 +37,14 @@ const PriceSection: React.FC<PriceSectionProps> = ({ visibleSections }) => {
                         </td>
                       </tr>
                       {category.items.map((item, idx) => (
-                        <tr key={`${category.category}-${idx}`} className="border-b hover:bg-muted/20 transition-colors">
+                        <tr 
+                          key={`${category.category}-${idx}`} 
+                          className="border-b hover:bg-muted/20 transition-colors opacity-0 animate-product-appear"
+                          style={{ 
+                            animationDelay: `${idx * 50}ms`,
+                            animationFillMode: 'forwards'
+                          }}
+                        >
                           <td className="py-3 px-4">{item.name}</td>
                           <td className="py-3 px-4 text-muted-foreground">{item.description}</td>
                           <td className="py-3 px-4 text-right font-semibold">

@@ -33,9 +33,9 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ visibleSections }) => {
                 {category.items.map((item, idx) => (
                   <Card 
                     key={idx} 
-                    className="card-3d-hover opacity-0 animate-fade-in"
+                    className="card-3d-hover opacity-0 animate-product-appear"
                     style={{ 
-                      animationDelay: `${idx * 100}ms`,
+                      animationDelay: `${idx * 80}ms`,
                       animationFillMode: 'forwards'
                     }}
                   >
