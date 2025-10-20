@@ -7,6 +7,7 @@ import VisitorCounter from '@/components/VisitorCounter';
 import AnimatedBackground from '@/components/ui/animated-background';
 import ScrollProgress from '@/components/ui/scroll-progress';
 import CookieConsent from '@/components/ui/cookie-consent';
+import CloudBackground from '@/components/ui/cloud-background';
 
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
@@ -162,6 +163,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <ScrollProgress />
       <AnimatedBackground />
+      <CloudBackground />
       <CookieConsent />
       <Navigation
         activeSection={activeSection}

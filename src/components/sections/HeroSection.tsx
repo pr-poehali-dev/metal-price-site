@@ -48,11 +48,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
             Широкий ассортимент металлопродукции по актуальным ценам. Доставка по всей России.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in">
-            <Button size="lg" variant="secondary" className="depth-shadow-md hover:depth-shadow-lg transition-all" onClick={() => scrollToSection('catalog')}>
+            <Button size="lg" variant="secondary" className="depth-shadow-md hover:depth-shadow-lg transition-all pulse-glow shimmer-effect" onClick={() => scrollToSection('catalog')}>
               <Icon name="Package" className="mr-2 h-5 w-5" />
               Смотреть каталог
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 depth-shadow-md hover:depth-shadow-lg transition-all" onClick={() => scrollToSection('calculator')}>
+            <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 depth-shadow-md hover:depth-shadow-lg transition-all shimmer-effect" onClick={() => scrollToSection('calculator')}>
               <Icon name="Calculator" className="mr-2 h-5 w-5" />
               Рассчитать стоимость
             </Button>
