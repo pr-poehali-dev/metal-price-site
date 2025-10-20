@@ -13,11 +13,13 @@ const CloudBackground = () => {
   const [clouds, setClouds] = useState<Cloud[]>([]);
 
   useEffect(() => {
-    const generatedClouds: Cloud[] = Array.from({ length: 8 }, (_, i) => ({
+    const isMobile = window.innerWidth < 768;
+    const cloudCount = isMobile ? 4 : 8;
+    const generatedClouds: Cloud[] = Array.from({ length: cloudCount }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: 150 + Math.random() * 200,
+      size: isMobile ? 100 + Math.random() * 100 : 150 + Math.random() * 200,
       duration: 20 + Math.random() * 15,
       delay: Math.random() * 10,
     }));

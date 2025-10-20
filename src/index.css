@@ -95,6 +95,7 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -112,6 +113,8 @@
     animation: gradientShift 20s ease infinite;
     font-display: swap;
     will-change: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   @keyframes gradientShift {
@@ -180,7 +183,6 @@
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 1s ease-in;
-    will-change: opacity;
   }
 
   .animate-scale-in {
@@ -199,13 +201,27 @@
     animation: slideInRight 0.8s ease-out forwards;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-scale-in,
+    .animate-slide-up,
+    .animate-slide-in-left,
+    .animate-slide-in-right {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .card-3d-hover {
     transition: all 0.3s ease;
   }
 
-  .card-3d-hover:hover {
-    transform: translateY(-8px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+  @media (hover: hover) and (pointer: fine) {
+    .card-3d-hover:hover {
+      transform: translateY(-8px) rotateX(5deg);
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+    }
   }
 
   .btn-ripple {

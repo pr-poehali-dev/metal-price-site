@@ -1,7 +1,19 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const AnimatedBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -43,7 +55,10 @@ const AnimatedBackground = () => {
       opacity: number;
     }> = [];
 
-    for (let i = 0; i < 30; i++) {
+    const particleCount = isMobile ? 15 : 30;
+    const gearCount = isMobile ? 3 : 8;
+
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -54,7 +69,7 @@ const AnimatedBackground = () => {
       });
     }
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < gearCount; i++) {
       gears.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -67,6 +82,7 @@ const AnimatedBackground = () => {
     }
 
     const createSparks = () => {
+      if (isMobile) return;
       if (Math.random() > 0.95) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
@@ -238,7 +254,7 @@ const AnimatedBackground = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <canvas
