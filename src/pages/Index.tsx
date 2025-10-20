@@ -387,14 +387,9 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent"></div>
       </section>
 
-      <section id="catalog" className={`py-16 bg-background transition-all duration-700 ${visibleSections.has('catalog') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section className="py-8 bg-background border-b">
         <div className="container px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Каталог продукции</h2>
-              <p className="text-muted-foreground text-lg">Цены актуальны на {new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-            </div>
-
+          <div className="flex justify-center">
             <Card className="bg-background/95 backdrop-blur-sm border-2 shadow-lg">
               <div className="p-4 flex items-center gap-4">
                 <Icon name="Users" className="h-8 w-8 text-accent" />
@@ -404,6 +399,15 @@ const Index = () => {
                 </div>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalog" className={`py-16 bg-background transition-all duration-700 ${visibleSections.has('catalog') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="container px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Каталог продукции</h2>
+            <p className="text-muted-foreground text-lg">Цены актуальны на {new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           </div>
 
           <Tabs defaultValue={metalProducts[0].category} className="w-full">
