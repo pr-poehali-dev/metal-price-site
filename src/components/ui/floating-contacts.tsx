@@ -31,8 +31,8 @@ const FloatingContacts: React.FC = () => {
           onClick={handleWhatsApp}
           className="relative group"
         >
-          <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></div>
-          <div className="relative h-16 w-16 rounded-full bg-green-500 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center p-2">
+          <div className="absolute inset-0 rounded-full bg-green-600 animate-ping opacity-75"></div>
+          <div className="relative h-16 w-16 rounded-full bg-green-700 shadow-2xl hover:shadow-green-600/50 transition-all duration-300 hover:scale-110 flex items-center justify-center p-2">
             <img 
               src="https://cdn.poehali.dev/files/2fe97b00-fc76-4c22-b12e-6be6267750e0.jpeg"
               alt="WhatsApp"
