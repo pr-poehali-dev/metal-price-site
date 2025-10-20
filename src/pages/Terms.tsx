@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -6,6 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 const Terms: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Пользовательское соглашение — Краев Металл Компани';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Пользовательское соглашение при использовании сайта Краев Металл Компани. Права и обязанности пользователей.');
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background py-16">

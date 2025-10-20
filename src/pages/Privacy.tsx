@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -6,6 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 const Privacy: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Политика конфиденциальности — Краев Металл Компани';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Политика конфиденциальности и обработки персональных данных ООО «Краев Металл Компани». Защита информации согласно ФЗ-152.');
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background py-16">
