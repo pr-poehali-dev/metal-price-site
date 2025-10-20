@@ -25,16 +25,19 @@ const FloatingContacts: React.FC = () => {
           </span>
         </Button>
 
-        <Button
+        <button
           onClick={handleWhatsApp}
-          size="lg"
-          className="h-14 w-14 rounded-full shadow-lg bg-green-500 hover:bg-green-600 text-white relative group"
+          className="relative group shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
         >
-          <Icon name="MessageCircle" size={24} />
-          <span className="absolute right-full mr-3 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          <img 
+            src="https://cdn.poehali.dev/files/20f7ad22-5d59-49c4-917c-1e032bf8de49.png"
+            alt="WhatsApp"
+            className="h-14 w-auto rounded-2xl"
+          />
+          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
             WhatsApp
           </span>
-        </Button>
+        </button>
       </div>
 
     </>
