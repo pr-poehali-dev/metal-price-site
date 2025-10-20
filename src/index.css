@@ -355,6 +355,24 @@
     }
   }
 
+  .star-pop {
+    animation: starPop 0.5s ease-out forwards;
+  }
+
+  @keyframes starPop {
+    0% {
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.3) rotate(0deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
   .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
