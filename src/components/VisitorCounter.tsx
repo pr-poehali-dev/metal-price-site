@@ -72,7 +72,7 @@ const VisitorCounter = () => {
         </div>
         
         <div className="space-y-2">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col items-center gap-1">
             <span className="text-xs text-muted-foreground">Всего:</span>
             <div className="flex gap-1">
               {isLoading ? (
@@ -91,7 +91,7 @@ const VisitorCounter = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between gap-4 pt-2 border-t">
+          <div className="flex flex-col items-center gap-1 pt-2 border-t">
             <span className="text-xs text-muted-foreground">Сегодня:</span>
             <div className="flex gap-1">
               {isLoading ? (
