@@ -73,7 +73,7 @@ const VisitorCounter = () => {
         
         <div className="space-y-2">
           <div className="flex flex-col items-center gap-1">
-            <span className="text-xs text-muted-foreground">Всего:</span>
+            <span className="text-xs text-muted-foreground">Сейчас на сайте:</span>
             <div className="flex gap-1">
               {isLoading ? (
                 <span className="text-lg font-bold text-accent">---</span>
