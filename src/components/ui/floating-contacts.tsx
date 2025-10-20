@@ -14,16 +14,17 @@ const FloatingContacts: React.FC = () => {
   return (
     <>
       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
-        <Button
+        <button
           onClick={handleCall}
-          size="lg"
-          className="h-14 w-14 rounded-full shadow-lg bg-blue-500 hover:bg-blue-600 text-white relative group"
+          className="relative group shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         >
-          <Icon name="Phone" size={24} />
-          <span className="absolute right-full mr-3 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="h-14 w-14 rounded-2xl bg-blue-500 flex items-center justify-center">
+            <Icon name="Phone" size={28} className="text-white" />
+          </div>
+          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
             Позвонить
           </span>
-        </Button>
+        </button>
 
         <button
           onClick={handleWhatsApp}
