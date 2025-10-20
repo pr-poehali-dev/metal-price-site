@@ -68,6 +68,8 @@ const GallerySection: React.FC<GallerySectionProps> = ({ visibleSections }) => {
                 src={image.src} 
                 alt={image.alt} 
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                 <p className="text-white font-semibold">{image.title}</p>

@@ -110,6 +110,8 @@
     );
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
+    font-display: swap;
+    will-change: auto;
   }
 
   @keyframes gradientShift {
@@ -137,6 +139,7 @@
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 1s ease-in;
+    will-change: opacity;
   }
 
   .animate-scale-in {

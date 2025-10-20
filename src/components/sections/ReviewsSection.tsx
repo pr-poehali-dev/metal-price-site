@@ -12,22 +12,53 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({ visibleSections }) => {
     {
       name: 'Иван Петров',
       company: 'ООО "СтройКомплект"',
-      text: 'Работаем с Краев Металл Компани уже 3 года. Всегда качественная продукция, быстрая доставка и адекватные цены. Рекомендую!'
+      text: 'Работаем с Краев Металл Компани уже 3 года. Всегда качественная продукция, быстрая доставка и адекватные цены. Рекомендую!',
+      rating: 5,
+      date: '2024-09-15'
     },
     {
       name: 'Мария Соколова',
       company: 'ИП Соколова М.А.',
-      text: 'Отличная компания! Помогли подобрать нужный металлопрокат, оформили все документы. Особенно порадовала оперативность менеджеров.'
+      text: 'Отличная компания! Помогли подобрать нужный металлопрокат, оформили все документы. Особенно порадовала оперативность менеджеров.',
+      rating: 5,
+      date: '2024-08-22'
     },
     {
       name: 'Алексей Краснов',
       company: 'АО "МеталлСтрой"',
-      text: 'Большой ассортимент, все позиции в наличии на складе. Цены конкурентные, доставка точно в срок. Очень довольны сотрудничеством!'
+      text: 'Большой ассортимент, все позиции в наличии на складе. Цены конкурентные, доставка точно в срок. Очень довольны сотрудничеством!',
+      rating: 5,
+      date: '2024-10-01'
     }
   ];
 
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": reviews.map((review, index) => ({
+      "@type": "Review",
+      "position": index + 1,
+      "author": {
+        "@type": "Person",
+        "name": review.name
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": review.rating,
+        "bestRating": 5
+      },
+      "datePublished": review.date,
+      "reviewBody": review.text,
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "Краев Металл Компани"
+      }
+    }))
+  };
+
   return (
     <section id="reviews" className={`py-16 ${visibleSections.has('reviews') ? 'animate-slide-up' : 'opacity-0'}`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Отзывы клиентов</h2>

@@ -31,6 +31,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
           src="https://cdn.poehali.dev/files/c52ad37f-0bbe-49a5-9727-00ff797668eb.jpeg" 
           alt="Металлопрокат - склад" 
           className="w-full h-full object-cover animate-scale-in"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-950/40 to-orange-950/50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,69,0,0.15),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(255,140,0,0.1),transparent_50%)]"></div>
