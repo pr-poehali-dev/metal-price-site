@@ -19,11 +19,12 @@ const Navigation: React.FC<NavigationProps> = ({
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center">
-            <Icon name="Factory" className="h-6 w-6 text-accent-foreground" />
+          <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center logo-glow relative overflow-hidden">
+            <Icon name="Factory" className="h-6 w-6 text-accent-foreground logo-spin" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent logo-spin"></div>
           </div>
           <div>
-            <h1 className="font-bold text-lg leading-tight">Краев Металл Компани</h1>
+            <h1 className="font-bold text-lg leading-tight glow-text">Краев Металл Компани</h1>
             <p className="text-xs text-muted-foreground">Металлопрокат от производителя</p>
           </div>
         </div>

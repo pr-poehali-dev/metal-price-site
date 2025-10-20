@@ -170,6 +170,34 @@
       0 0 40px rgba(212, 175, 55, 0.3);
   }
 
+  .logo-spin {
+    animation: logoSpin 20s linear infinite;
+  }
+
+  .logo-glow {
+    animation: logoGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes logoSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes logoGlow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 1))
+        drop-shadow(0 0 30px rgba(212, 175, 55, 0.6));
+    }
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;

@@ -22,6 +22,15 @@ const AnimatedBackground = () => {
       opacity: number;
     }> = [];
 
+    const stars: Array<{
+      x: number;
+      y: number;
+      size: number;
+      opacity: number;
+      twinkleSpeed: number;
+      twinklePhase: number;
+    }> = [];
+
     for (let i = 0; i < 50; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -33,8 +42,44 @@ const AnimatedBackground = () => {
       });
     }
 
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random(),
+        twinkleSpeed: Math.random() * 0.02 + 0.01,
+        twinklePhase: Math.random() * Math.PI * 2,
+      });
+    }
+
+    let frame = 0;
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      frame++;
+
+      stars.forEach((star) => {
+        star.twinklePhase += star.twinkleSpeed;
+        const twinkle = (Math.sin(star.twinklePhase) + 1) / 2;
+        
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity * twinkle * 0.8})`;
+        ctx.fill();
+
+        if (twinkle > 0.7) {
+          ctx.beginPath();
+          ctx.moveTo(star.x - star.size * 2, star.y);
+          ctx.lineTo(star.x + star.size * 2, star.y);
+          ctx.moveTo(star.x, star.y - star.size * 2);
+          ctx.lineTo(star.x, star.y + star.size * 2);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${star.opacity * twinkle * 0.4})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      });
 
       particles.forEach((particle) => {
         particle.x += particle.vx;
