@@ -29,40 +29,16 @@ const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [counters, setCounters] = useState({ years: 0, warehouse: 0, clients: 0 });
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [todayVisitors, setTodayVisitors] = useState(12);
+  const [onlineUsers, setOnlineUsers] = useState(3);
 
   useEffect(() => {
-    const TODAY_KEY = 'today_visitors';
-    const DATE_KEY = 'last_visit_date';
-    const LAST_UPDATE_KEY = 'last_update_time';
-
-    const today = new Date().toDateString();
-    const lastVisitDate = localStorage.getItem(DATE_KEY);
-    const lastUpdateTime = parseInt(localStorage.getItem(LAST_UPDATE_KEY) || '0', 10);
-    const currentTime = Date.now();
-
-    let todayCount = parseInt(localStorage.getItem(TODAY_KEY) || '12', 10);
-
-    if (lastVisitDate !== today) {
-      todayCount = Math.floor(Math.random() * 20) + 5;
-      localStorage.setItem(DATE_KEY, today);
-    }
-
-    if (currentTime - lastUpdateTime > 5 * 60 * 1000) {
-      todayCount += Math.floor(Math.random() * 3) + 1;
-      localStorage.setItem(LAST_UPDATE_KEY, currentTime.toString());
-    }
-
-    localStorage.setItem(TODAY_KEY, todayCount.toString());
-    setTodayVisitors(todayCount);
+    const getRandomOnlineCount = () => Math.floor(Math.random() * 8) + 2;
+    
+    setOnlineUsers(getRandomOnlineCount());
 
     const interval = setInterval(() => {
-      const newToday = todayCount + Math.floor(Math.random() * 3) + 1;
-      setTodayVisitors(newToday);
-      localStorage.setItem(TODAY_KEY, newToday.toString());
-      localStorage.setItem(LAST_UPDATE_KEY, Date.now().toString());
-      todayCount = newToday;
-    }, 5 * 60 * 1000);
+      setOnlineUsers(getRandomOnlineCount());
+    }, 15 * 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -193,10 +169,13 @@ const Index = () => {
           <div className="flex justify-center">
             <Card className="bg-background/95 backdrop-blur-sm border-2 shadow-lg">
               <div className="p-4 flex items-center gap-4">
-                <Icon name="Users" className="h-8 w-8 text-accent" />
+                <div className="relative">
+                  <Icon name="Users" className="h-8 w-8 text-accent" />
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                </div>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Посетителей сегодня</p>
-                  <p className="text-2xl font-bold text-accent">{todayVisitors}</p>
+                  <p className="text-xs text-muted-foreground mb-1">Сейчас на сайте</p>
+                  <p className="text-2xl font-bold text-accent">{onlineUsers}</p>
                 </div>
               </div>
             </Card>
