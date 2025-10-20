@@ -86,6 +86,11 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                   />
                 </div>
 
+                <div className="text-xs text-muted-foreground space-y-1 bg-muted/30 p-3 rounded-lg">
+                  <p>* Обязательные поля для заполнения</p>
+                  <p>Отправляя форму, вы соглашаетесь с <a href="/privacy" className="text-accent hover:underline">Политикой конфиденциальности</a> и <a href="/terms" className="text-accent hover:underline">Пользовательским соглашением</a></p>
+                </div>
+
                 {submitSuccess && (
                   <div className="p-4 bg-green-50 border border-green-200 rounded-lg animate-fade-in">
                     <p className="text-green-800 text-sm font-medium">✓ Заявка успешно отправлена!</p>

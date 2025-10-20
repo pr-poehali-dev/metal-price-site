@@ -5,6 +5,8 @@ import Icon from '@/components/ui/icon';
 import FloatingContacts from '@/components/ui/floating-contacts';
 import VisitorCounter from '@/components/VisitorCounter';
 import AnimatedBackground from '@/components/ui/animated-background';
+import ScrollProgress from '@/components/ui/scroll-progress';
+import CookieConsent from '@/components/ui/cookie-consent';
 
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
@@ -127,7 +129,20 @@ const Index = () => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
     
+    const phoneRegex = /^[\d\s+()-]{10,}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert('Пожалуйста, введите корректный номер телефона');
+      return;
+    }
+    
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      alert('Пожалуйста, введите корректный email');
+      return;
+    }
+    
     setIsSubmitting(true);
+    
+    await new Promise(resolve => setTimeout(resolve, 800));
     
     if (method === 'whatsapp') {
       sendToWhatsApp();
@@ -145,7 +160,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <AnimatedBackground />
+      <CookieConsent />
       <Navigation
         activeSection={activeSection}
         mobileMenuOpen={mobileMenuOpen}
@@ -189,10 +206,46 @@ const Index = () => {
       />
 
       <footer className="py-8 bg-primary/90 text-primary-foreground/80 border-t border-primary-foreground/10">
-        <div className="container px-4 text-center">
-          <p className="text-sm">
-            © {new Date().getFullYear()} Краев Металл Компани. Все права защищены.
-          </p>
+        <div className="container px-4">
+          <div className="grid gap-8 md:grid-cols-3 mb-6">
+            <div>
+              <h3 className="font-semibold mb-3 text-primary-foreground">Краев Металл Компани</h3>
+              <p className="text-sm text-primary-foreground/70 mb-2">
+                Металлопрокат от производителя с 2010 года
+              </p>
+              <p className="text-xs text-primary-foreground/60">
+                ОГРН: уточняйте у менеджера<br />
+                ИНН: уточняйте у менеджера
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3 text-primary-foreground">Контакты</h3>
+              <div className="space-y-1 text-sm text-primary-foreground/70">
+                <p>Телефон: +7 (918) 508-60-59</p>
+                <p>Email: KraevK.working@yandex.com</p>
+                <p>Адрес: г. Краснодар</p>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3 text-primary-foreground">Документы</h3>
+              <div className="space-y-2 text-sm">
+                <a href="/privacy" className="block text-primary-foreground/70 hover:text-accent transition-colors">
+                  Политика конфиденциальности
+                </a>
+                <a href="/terms" className="block text-primary-foreground/70 hover:text-accent transition-colors">
+                  Пользовательское соглашение
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-primary-foreground/10 pt-6 text-center">
+            <p className="text-sm text-primary-foreground/70">
+              © {new Date().getFullYear()} Краев Металл Компани. Все права защищены.
+            </p>
+            <p className="text-xs text-primary-foreground/50 mt-2">
+              Информация на сайте не является публичной офертой (ст. 437 ГК РФ)
+            </p>
+          </div>
         </div>
       </footer>
 
