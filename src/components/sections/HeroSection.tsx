@@ -41,18 +41,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
       
       <div className="container px-4 relative h-full flex items-center">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in drop-shadow-lg hero-glow-text">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in text-depth-strong hero-glow-text">
             Металлопрокат от производителя
           </h1>
-          <p className="text-xl text-white/95 mb-8 animate-fade-in drop-shadow-md animate-delay-200">
+          <p className="text-xl text-white/95 mb-8 animate-fade-in text-depth animate-delay-200">
             Широкий ассортимент металлопродукции по актуальным ценам. Доставка по всей России.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in">
-            <Button size="lg" variant="secondary" onClick={() => scrollToSection('catalog')}>
+            <Button size="lg" variant="secondary" className="depth-shadow-md hover:depth-shadow-lg transition-all" onClick={() => scrollToSection('catalog')}>
               <Icon name="Package" className="mr-2 h-5 w-5" />
               Смотреть каталог
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30" onClick={() => scrollToSection('calculator')}>
+            <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 depth-shadow-md hover:depth-shadow-lg transition-all" onClick={() => scrollToSection('calculator')}>
               <Icon name="Calculator" className="mr-2 h-5 w-5" />
               Рассчитать стоимость
             </Button>

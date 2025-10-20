@@ -50,7 +50,7 @@ const CalculatorSection: React.FC<CalculatorSectionProps> = ({
           <div className="inline-flex items-center justify-center p-2 md:p-3 bg-accent/10 rounded-2xl mb-3 md:mb-4">
             <Icon name="Calculator" className="h-6 w-6 md:h-8 md:w-8 text-accent" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 px-4 text-depth-strong">
             Калькулятор стоимости
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
@@ -58,7 +58,7 @@ const CalculatorSection: React.FC<CalculatorSectionProps> = ({
           </p>
         </div>
 
-        <Card className="max-w-3xl mx-auto border-2 border-accent/20 shadow-2xl backdrop-blur-sm bg-card/95">
+        <Card className="max-w-3xl mx-auto border-2 border-accent/20 depth-shadow-xl backdrop-blur-sm bg-card/95">
           <CardHeader className="space-y-1 pb-6 md:pb-8 px-4 md:px-6">
             <CardTitle className="text-xl md:text-2xl">Расчет стоимости металлопродукции</CardTitle>
             <CardDescription className="text-sm md:text-base">Выберите продукцию и укажите вес для мгновенного расчета</CardDescription>
