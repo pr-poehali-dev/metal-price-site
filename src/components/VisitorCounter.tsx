@@ -7,7 +7,7 @@ const VisitorCounter = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getRandomOnline = () => Math.floor(Math.random() * 471) + 30;
+    const getRandomOnline = () => Math.floor(Math.random() * 1351) + 150;
     
     setTimeout(() => {
       setOnlineUsers(getRandomOnline());
@@ -16,7 +16,7 @@ const VisitorCounter = () => {
 
     const interval = setInterval(() => {
       setOnlineUsers(getRandomOnline());
-    }, 15 * 1000);
+    }, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, []);
