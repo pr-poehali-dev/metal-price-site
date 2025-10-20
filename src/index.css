@@ -213,14 +213,53 @@
     }
   }
 
-  .card-3d-hover {
-    transition: all 0.3s ease;
+  .card-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
   }
 
   @media (hover: hover) and (pointer: fine) {
+    .card-3d:hover .card-3d-inner {
+      transform: rotateY(2deg) rotateX(-2deg) translateZ(20px);
+    }
+
+    .card-3d-hover {
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      transform-style: preserve-3d;
+    }
+
     .card-3d-hover:hover {
-      transform: translateY(-8px) rotateX(5deg);
-      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow:
+        0 30px 60px -12px rgba(59, 130, 246, 0.25),
+        0 18px 36px -18px rgba(59, 130, 246, 0.2),
+        0 0 0 1px rgba(59, 130, 246, 0.1);
+    }
+
+    .card-3d-hover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(59, 130, 246, 0.1) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .card-3d-hover:hover::before {
+      opacity: 1;
     }
   }
 
@@ -387,6 +426,34 @@
       transform: scale(1) rotate(0deg);
       opacity: 1;
     }
+  }
+
+  .depth-shadow-sm {
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .depth-shadow-md {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 8px 12px -2px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+  }
+
+  .depth-shadow-lg {
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 20px 25px -5px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.03);
+  }
+
+  .depth-shadow-xl {
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 30px 40px -10px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .scroll-reveal {
