@@ -61,6 +61,43 @@ const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [counters, setCounters] = useState({ years: 0, warehouse: 0, clients: 0 });
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [todayVisitors, setTodayVisitors] = useState(12);
+
+  useEffect(() => {
+    const TODAY_KEY = 'today_visitors';
+    const DATE_KEY = 'last_visit_date';
+    const LAST_UPDATE_KEY = 'last_update_time';
+
+    const today = new Date().toDateString();
+    const lastVisitDate = localStorage.getItem(DATE_KEY);
+    const lastUpdateTime = parseInt(localStorage.getItem(LAST_UPDATE_KEY) || '0', 10);
+    const currentTime = Date.now();
+
+    let todayCount = parseInt(localStorage.getItem(TODAY_KEY) || '12', 10);
+
+    if (lastVisitDate !== today) {
+      todayCount = Math.floor(Math.random() * 20) + 5;
+      localStorage.setItem(DATE_KEY, today);
+    }
+
+    if (currentTime - lastUpdateTime > 5 * 60 * 1000) {
+      todayCount += Math.floor(Math.random() * 3) + 1;
+      localStorage.setItem(LAST_UPDATE_KEY, currentTime.toString());
+    }
+
+    localStorage.setItem(TODAY_KEY, todayCount.toString());
+    setTodayVisitors(todayCount);
+
+    const interval = setInterval(() => {
+      const newToday = todayCount + Math.floor(Math.random() * 3) + 1;
+      setTodayVisitors(newToday);
+      localStorage.setItem(TODAY_KEY, newToday.toString());
+      localStorage.setItem(LAST_UPDATE_KEY, Date.now().toString());
+      todayCount = newToday;
+    }, 5 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
