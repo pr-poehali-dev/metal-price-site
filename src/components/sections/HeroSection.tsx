@@ -35,8 +35,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
           fetchpriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-950/40 to-orange-950/50"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,69,0,0.15),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(255,140,0,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-teal-950/40 to-cyan-950/50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(16,185,129,0.15),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
       </div>
       
       <div className="container px-4 relative h-full flex items-center">

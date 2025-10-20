@@ -43,7 +43,7 @@ const CalculatorSection: React.FC<CalculatorSectionProps> = ({
 
   return (
     <section id="calculator" className={`py-12 md:py-20 bg-gradient-to-b from-background via-accent/5 to-background relative overflow-hidden ${visibleSections.has('calculator') ? 'animate-slide-up' : 'opacity-0'}`}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,69,0,0.05),transparent_70%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_70%)]"></div>
       
       <div className="container px-4 md:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-8 md:mb-16">

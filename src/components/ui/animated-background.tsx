@@ -72,11 +72,11 @@ const AnimatedBackground = () => {
         const y = Math.random() * canvas.height;
         
         const sparkColors = [
-          '255, 69, 0',
-          '255, 140, 0', 
-          '255, 165, 0',
-          '220, 20, 60',
-          '255, 99, 71'
+          '16, 185, 129',
+          '59, 130, 246', 
+          '147, 51, 234',
+          '34, 211, 238',
+          '99, 102, 241'
         ];
         
         for (let i = 0; i < 8; i++) {
@@ -109,7 +109,7 @@ const AnimatedBackground = () => {
       const toothHeight = gear.radius * 0.2;
       
       const gearGradient = ctx.createRadialGradient(0, 0, innerRadius * 0.5, 0, 0, outerRadius);
-      gearGradient.addColorStop(0, `rgba(139, 0, 0, ${gear.opacity * 0.3})`);
+      gearGradient.addColorStop(0, `rgba(16, 185, 129, ${gear.opacity * 0.3})`);
       gearGradient.addColorStop(0.5, `rgba(50, 50, 50, ${gear.opacity})`);
       gearGradient.addColorStop(1, `rgba(20, 20, 20, ${gear.opacity * 0.5})`);
       
@@ -188,14 +188,14 @@ const AnimatedBackground = () => {
         ctx.rotate(frame * 0.015);
         
         const gradient = ctx.createLinearGradient(-particle.size, -particle.size, particle.size, particle.size);
-        gradient.addColorStop(0, `rgba(60, 20, 20, ${particle.opacity})`);
-        gradient.addColorStop(0.5, `rgba(139, 69, 19, ${particle.opacity * 0.6})`);
-        gradient.addColorStop(1, `rgba(255, 140, 0, ${particle.opacity * 0.3})`);
+        gradient.addColorStop(0, `rgba(20, 60, 60, ${particle.opacity})`);
+        gradient.addColorStop(0.5, `rgba(19, 139, 119, ${particle.opacity * 0.6})`);
+        gradient.addColorStop(1, `rgba(16, 185, 129, ${particle.opacity * 0.3})`);
         
         ctx.fillStyle = gradient;
         ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
         
-        ctx.strokeStyle = `rgba(255, 69, 0, ${particle.opacity * 0.4})`;
+        ctx.strokeStyle = `rgba(16, 185, 129, ${particle.opacity * 0.4})`;
         ctx.lineWidth = 0.5;
         ctx.strokeRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
         
@@ -213,9 +213,9 @@ const AnimatedBackground = () => {
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-            gradient.addColorStop(0, `rgba(139, 0, 0, ${0.15 * (1 - distance / 150)})`);
-            gradient.addColorStop(0.5, `rgba(255, 69, 0, ${0.08 * (1 - distance / 150)})`);
-            gradient.addColorStop(1, `rgba(60, 20, 20, ${0.1 * (1 - distance / 150)})`);
+            gradient.addColorStop(0, `rgba(16, 185, 129, ${0.15 * (1 - distance / 150)})`);
+            gradient.addColorStop(0.5, `rgba(59, 130, 246, ${0.08 * (1 - distance / 150)})`);
+            gradient.addColorStop(1, `rgba(20, 60, 60, ${0.1 * (1 - distance / 150)})`);
             ctx.strokeStyle = gradient;
             ctx.lineWidth = 1;
             ctx.stroke();
