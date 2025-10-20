@@ -17,10 +17,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ visibleSections, counters }
 
         <div className="max-w-5xl mx-auto">
           <div className="grid gap-6 md:grid-cols-3 mb-12">
-            <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
+            <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20 steel-shimmer card-3d-hover">
               <CardContent className="p-0">
                 <Icon name="Calendar" className="h-12 w-12 text-accent mx-auto mb-4" />
-                <div className="text-5xl font-bold text-accent mb-2">
+                <div className="text-5xl font-bold text-accent mb-2 glow-text">
                   {counters.years}+
                 </div>
                 <p className="text-lg font-semibold mb-1">лет на рынке</p>
@@ -28,10 +28,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ visibleSections, counters }
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
+            <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20 steel-shimmer card-3d-hover">
               <CardContent className="p-0">
                 <Icon name="Warehouse" className="h-12 w-12 text-accent mx-auto mb-4" />
-                <div className="text-5xl font-bold text-accent mb-2">
+                <div className="text-5xl font-bold text-accent mb-2 glow-text">
                   {counters.warehouse.toLocaleString('ru-RU')}
                 </div>
                 <p className="text-lg font-semibold mb-1">м² склад</p>
@@ -39,10 +39,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ visibleSections, counters }
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
+            <Card className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20 steel-shimmer card-3d-hover">
               <CardContent className="p-0">
                 <Icon name="Users" className="h-12 w-12 text-accent mx-auto mb-4" />
-                <div className="text-5xl font-bold text-accent mb-2">
+                <div className="text-5xl font-bold text-accent mb-2 glow-text">
                   {counters.clients}+
                 </div>
                 <p className="text-lg font-semibold mb-1">клиентов</p>

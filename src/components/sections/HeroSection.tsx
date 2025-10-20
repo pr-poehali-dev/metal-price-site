@@ -32,15 +32,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
           alt="Металлопрокат - склад" 
           className="w-full h-full object-cover animate-scale-in"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-red-950/40 to-orange-950/50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,69,0,0.15),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(255,140,0,0.1),transparent_50%)]"></div>
       </div>
       
       <div className="container px-4 relative h-full flex items-center">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in drop-shadow-lg hero-glow-text">
             Металлопрокат от производителя
           </h1>
-          <p className="text-xl text-white/95 mb-8 animate-fade-in drop-shadow-md">
+          <p className="text-xl text-white/95 mb-8 animate-fade-in drop-shadow-md animate-delay-200">
             Широкий ассортимент металлопродукции по актуальным ценам. Доставка по всей России.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in">
