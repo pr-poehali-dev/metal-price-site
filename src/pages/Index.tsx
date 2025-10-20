@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import FloatingContacts from '@/components/ui/floating-contacts';
 import VisitorCounter from '@/components/VisitorCounter';
+import AnimatedBackground from '@/components/ui/animated-background';
 
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
@@ -144,6 +145,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <AnimatedBackground />
       <Navigation
         activeSection={activeSection}
         mobileMenuOpen={mobileMenuOpen}

@@ -31,39 +31,45 @@ const Navigation: React.FC<NavigationProps> = ({
         <div className="hidden md:flex items-center gap-6">
           <button
             onClick={() => scrollToSection('catalog')}
-            className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === 'catalog' ? 'text-accent' : 'text-muted-foreground'}`}
+            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'catalog' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
           >
             Каталог
+            {activeSection === 'catalog' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('price')}
-            className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === 'price' ? 'text-accent' : 'text-muted-foreground'}`}
+            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'price' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
           >
             Прайс-лист
+            {activeSection === 'price' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('calculator')}
-            className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === 'calculator' ? 'text-accent' : 'text-muted-foreground'}`}
+            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'calculator' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
           >
             Калькулятор
+            {activeSection === 'calculator' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('delivery')}
-            className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === 'delivery' ? 'text-accent' : 'text-muted-foreground'}`}
+            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'delivery' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
           >
             Доставка
+            {activeSection === 'delivery' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === 'about' ? 'text-accent' : 'text-muted-foreground'}`}
+            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'about' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
           >
             О компании
+            {activeSection === 'about' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('contacts')}
-            className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === 'contacts' ? 'text-accent' : 'text-muted-foreground'}`}
+            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'contacts' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
           >
             Контакты
+            {activeSection === 'contacts' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
         </div>
 

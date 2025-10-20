@@ -100,6 +100,28 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Roboto", sans-serif;
+    background: linear-gradient(
+      135deg,
+      #0f172a 0%,
+      #1e293b 25%,
+      #334155 50%,
+      #1e293b 75%,
+      #0f172a 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   h1,
@@ -131,6 +153,21 @@
 
   .animate-slide-in-right {
     animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .card-3d-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-3d-hover:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+  }
+
+  .glow-text {
+    text-shadow:
+      0 0 20px rgba(212, 175, 55, 0.5),
+      0 0 40px rgba(212, 175, 55, 0.3);
   }
 
   @keyframes fadeIn {
