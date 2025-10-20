@@ -13,7 +13,7 @@ const FloatingContacts: React.FC = () => {
 
   return (
     <>
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+      <div className="fixed right-6 bottom-24 z-50 flex flex-col gap-4">
         <button
           onClick={handleCall}
           className="relative group"
