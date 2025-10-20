@@ -83,7 +83,7 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({ visibleSections }) => {
                 </div>
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <Icon key={i} name="Star" className="h-4 w-4 fill-accent text-accent" />
+                    <Icon key={i} name="Star" className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground">
