@@ -64,39 +64,17 @@ const VisitorCounter = () => {
   };
 
   return (
-    <Card className="fixed bottom-6 right-6 z-50 bg-background/95 backdrop-blur-sm border-2 shadow-xl">
-      <div className="p-4 space-y-3">
-        <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
-          <Icon name="Users" className="h-4 w-4 text-accent" />
-          <span>Сейчас на сайте</span>
+    <Card className="bg-background/95 backdrop-blur-sm border-2 shadow-lg">
+      <div className="p-4 flex items-center gap-4">
+        <div className="relative">
+          <Icon name="Users" className="h-8 w-8 text-accent" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
         </div>
-        
-        <div className="space-y-2">
-          <div className="flex flex-col items-center gap-1">
-            <span className="text-xs text-muted-foreground">Сейчас на сайте:</span>
-            <div className="flex gap-1">
-              {isLoading ? (
-                <span className="text-lg font-bold text-accent">---</span>
-              ) : (
-                animateNumber(visitors).split('').map((digit, idx) => (
-                  <span
-                    key={idx}
-                    className="text-lg font-bold text-accent bg-accent/10 px-1.5 rounded animate-fade-in"
-                    style={{ animationDelay: `${idx * 50}ms` }}
-                  >
-                    {digit}
-                  </span>
-                ))
-              )}
-            </div>
-          </div>
-
-
-        </div>
-
-        <div className="flex items-center gap-1 pt-2 border-t">
-          <div className="h-2 w-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-xs text-muted-foreground">Онлайн</span>
+        <div>
+          <p className="text-xs text-muted-foreground mb-1">Сейчас на сайте</p>
+          <p className="text-2xl font-bold text-accent">
+            {isLoading ? '---' : visitors}
+          </p>
         </div>
       </div>
     </Card>

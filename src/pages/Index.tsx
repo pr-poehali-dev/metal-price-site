@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import FloatingContacts from '@/components/ui/floating-contacts';
+import VisitorCounter from '@/components/VisitorCounter';
 
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
@@ -152,7 +153,13 @@ const Index = () => {
 
       <HeroSection scrollToSection={scrollToSection} />
 
-
+      <section className="py-8 bg-background border-b">
+        <div className="container px-4">
+          <div className="flex justify-center">
+            <VisitorCounter />
+          </div>
+        </div>
+      </section>
 
       <CatalogSection visibleSections={visibleSections} />
       <PriceSection visibleSections={visibleSections} />
