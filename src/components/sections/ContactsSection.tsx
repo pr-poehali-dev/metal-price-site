@@ -100,7 +100,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                 <div className="flex gap-3">
                   <Button
                     type="button"
-                    className="flex-1 bg-green-600 hover:bg-green-700"
+                    className="flex-1 bg-green-600 hover:bg-green-700 click-effect micro-bounce"
                     size="lg"
                     onClick={(e) => handleSubmit(e, 'whatsapp')}
                     disabled={isSubmitting || !formData.name || !formData.phone}
@@ -112,7 +112,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                   <Button
                     type="button"
                     variant="outline"
-                    className="flex-1"
+                    className="flex-1 click-effect micro-bounce"
                     size="lg"
                     onClick={(e) => handleSubmit(e, 'email')}
                     disabled={isSubmitting || !formData.name || !formData.phone}

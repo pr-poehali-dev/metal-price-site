@@ -456,6 +456,96 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
+  .click-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .click-effect::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.4) 0%,
+      transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .click-effect:active::after {
+    animation: clickRipple 0.6s ease-out;
+  }
+
+  @keyframes clickRipple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+
+  .parallax-float {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .micro-bounce:active {
+    animation: microBounce 0.3s ease-out;
+  }
+
+  @keyframes microBounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .icon-bounce {
+    animation: iconBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes iconBounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes smoothPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+
+  .smooth-pulse {
+    animation: smoothPulse 3s ease-in-out infinite;
+  }
+
   .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);

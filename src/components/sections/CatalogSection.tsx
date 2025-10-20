@@ -54,7 +54,7 @@ const CatalogSection: React.FC<CatalogSectionProps> = ({ visibleSections }) => {
                         </span>
                         <span className="text-sm text-gray-500 font-medium">₽/{item.unit}</span>
                       </div>
-                      <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md hover:shadow-lg transition-all touch-manipulation" size="sm">
+                      <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-md hover:shadow-lg transition-all touch-manipulation click-effect micro-bounce" size="sm">
                         <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
                         Заказать
                       </Button>

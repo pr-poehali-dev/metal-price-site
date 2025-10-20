@@ -51,11 +51,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
             Широкий ассортимент металлопродукции по актуальным ценам. Доставка по всей России.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 animate-fade-in">
-            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 shadow-2xl shadow-white/20 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto" onClick={() => scrollToSection('catalog')}>
+            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 shadow-2xl shadow-white/20 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto click-effect micro-bounce" onClick={() => scrollToSection('catalog')}>
               <Icon name="Package" className="mr-2 h-5 w-5" />
               Смотреть каталог
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent hover:bg-white/10 text-white border-2 border-white/50 hover:border-white backdrop-blur-sm px-6 md:px-8 py-5 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto" onClick={() => scrollToSection('calculator')}>
+            <Button size="lg" variant="outline" className="bg-transparent hover:bg-white/10 text-white border-2 border-white/50 hover:border-white backdrop-blur-sm px-6 md:px-8 py-5 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto click-effect micro-bounce" onClick={() => scrollToSection('calculator')}>
               <Icon name="Calculator" className="mr-2 h-5 w-5" />
               Рассчитать стоимость
             </Button>
