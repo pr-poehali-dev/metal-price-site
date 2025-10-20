@@ -32,12 +32,8 @@ const FloatingContacts: React.FC = () => {
           className="relative group"
         >
           <div className="absolute inset-0 rounded-full bg-green-600 animate-ping opacity-75"></div>
-          <div className="relative h-16 w-16 rounded-full bg-green-700 shadow-2xl hover:shadow-green-600/50 transition-all duration-300 hover:scale-110 flex items-center justify-center p-2">
-            <img 
-              src="https://cdn.poehali.dev/files/2fe97b00-fc76-4c22-b12e-6be6267750e0.jpeg"
-              alt="WhatsApp"
-              className="h-full w-full object-contain"
-            />
+          <div className="relative h-16 w-16 rounded-full bg-green-700 shadow-2xl hover:shadow-green-600/50 transition-all duration-300 hover:scale-110 flex items-center justify-center">
+            <Icon name="MessageCircle" size={32} className="text-white" />
           </div>
           <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
             WhatsApp
