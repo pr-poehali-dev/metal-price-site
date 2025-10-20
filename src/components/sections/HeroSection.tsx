@@ -19,7 +19,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
   }, []);
 
   return (
-    <section id="hero" className="relative h-[600px] md:h-[700px] overflow-hidden">
+    <section id="hero" className="relative h-[700px] md:h-[800px] overflow-hidden mt-16">
       <div 
         className="absolute inset-0 animate-fade-in"
         style={{ 
@@ -35,24 +35,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
           fetchpriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-teal-950/40 to-cyan-950/50"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(16,185,129,0.15),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/70 to-blue-900/60"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.2),transparent_60%)]"></div>
       </div>
       
       <div className="container px-4 relative h-full flex items-center">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in text-depth-strong hero-glow-text">
-            Металлопрокат от производителя
+        <div className="max-w-4xl">
+          <div className="inline-block px-5 py-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-200 rounded-full text-sm font-semibold mb-6 animate-fade-in">
+            ✨ Металлопрокат премиум качества
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in leading-tight">
+            Металлопрокат от <span className="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">производителя</span>
           </h1>
-          <p className="text-xl text-white/95 mb-8 animate-fade-in text-depth animate-delay-200">
+          <p className="text-xl md:text-2xl text-gray-200 mb-10 animate-fade-in animate-delay-200 max-w-2xl leading-relaxed">
             Широкий ассортимент металлопродукции по актуальным ценам. Доставка по всей России.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in">
-            <Button size="lg" variant="secondary" className="depth-shadow-md hover:depth-shadow-lg transition-all pulse-glow shimmer-effect" onClick={() => scrollToSection('catalog')}>
+            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 shadow-2xl shadow-white/20 px-8 py-6 text-lg font-semibold" onClick={() => scrollToSection('catalog')}>
               <Icon name="Package" className="mr-2 h-5 w-5" />
               Смотреть каталог
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 depth-shadow-md hover:depth-shadow-lg transition-all shimmer-effect" onClick={() => scrollToSection('calculator')}>
+            <Button size="lg" variant="outline" className="bg-transparent hover:bg-white/10 text-white border-2 border-white/50 hover:border-white backdrop-blur-sm px-8 py-6 text-lg font-semibold" onClick={() => scrollToSection('calculator')}>
               <Icon name="Calculator" className="mr-2 h-5 w-5" />
               Рассчитать стоимость
             </Button>

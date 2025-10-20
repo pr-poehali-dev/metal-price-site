@@ -16,71 +16,65 @@ const Navigation: React.FC<NavigationProps> = ({
   scrollToSection
 }) => {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 shadow-lg">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-accent via-accent/90 to-accent/70 flex items-center justify-center steel-shimmer">
-            <Icon name="Factory" className="h-6 w-6 text-accent-foreground" />
+        <div className="flex items-center gap-3">
+          <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-sky-400 via-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-shadow">
+            <Icon name="Factory" className="h-7 w-7 text-white" />
           </div>
           <div>
-            <h1 className="font-bold text-lg leading-tight">Краев Металл Компани</h1>
-            <p className="text-xs text-muted-foreground">Металлопрокат от производителя</p>
+            <h1 className="font-bold text-xl leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">Краев Металл Компани</h1>
+            <p className="text-xs text-gray-600 font-medium">Металлопрокат от производителя</p>
           </div>
         </div>
 
         <div className="hidden md:flex items-center gap-6">
           <button
             onClick={() => scrollToSection('catalog')}
-            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'catalog' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
+            className={`text-sm font-semibold transition-all px-3 py-2 rounded-lg ${activeSection === 'catalog' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
           >
             Каталог
-            {activeSection === 'catalog' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('price')}
-            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'price' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
+            className={`text-sm font-semibold transition-all px-3 py-2 rounded-lg ${activeSection === 'price' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
           >
             Прайс-лист
-            {activeSection === 'price' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('calculator')}
-            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'calculator' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
+            className={`text-sm font-semibold transition-all px-3 py-2 rounded-lg ${activeSection === 'calculator' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
           >
             Калькулятор
-            {activeSection === 'calculator' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('delivery')}
-            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'delivery' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
+            className={`text-sm font-semibold transition-all px-3 py-2 rounded-lg ${activeSection === 'delivery' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
           >
             Доставка
-            {activeSection === 'delivery' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'about' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
+            className={`text-sm font-semibold transition-all px-3 py-2 rounded-lg ${activeSection === 'about' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
           >
             О компании
-            {activeSection === 'about' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
           <button
             onClick={() => scrollToSection('contacts')}
-            className={`text-sm font-medium transition-all hover:text-accent relative ${activeSection === 'contacts' ? 'text-accent glow-text' : 'text-muted-foreground'}`}
+            className={`text-sm font-semibold transition-all px-3 py-2 rounded-lg ${activeSection === 'contacts' ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
           >
             Контакты
-            {activeSection === 'contacts' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent animate-pulse"></span>}
           </button>
         </div>
 
-        <div className="hidden md:flex items-center gap-2">
-          <Button size="sm" variant="outline" asChild>
+        <div className="hidden md:flex items-center gap-3">
+          <Button size="sm" variant="ghost" className="hover:bg-green-50 hover:text-green-600 border border-transparent hover:border-green-200" asChild>
             <a href="https://wa.me/79185086059" target="_blank" rel="noopener noreferrer">
               <Icon name="MessageCircle" className="mr-2 h-4 w-4 text-green-500" />
               WhatsApp
             </a>
           </Button>
-          <Button size="sm" asChild>
+          <Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all" asChild>
             <a href="tel:+79185086059">
               <Icon name="Phone" className="mr-2 h-4 w-4" />
               +7 (918) 508-60-59
