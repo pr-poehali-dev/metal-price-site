@@ -91,18 +91,7 @@ const VisitorCounter = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-1 pt-2 border-t">
-            <span className="text-xs text-muted-foreground">Сегодня:</span>
-            <div className="flex gap-1">
-              {isLoading ? (
-                <span className="text-base font-semibold text-primary">--</span>
-              ) : (
-                <span className="text-base font-semibold text-primary animate-fade-in">
-                  {todayVisitors}
-                </span>
-              )}
-            </div>
-          </div>
+
         </div>
 
         <div className="flex items-center gap-1 pt-2 border-t">
