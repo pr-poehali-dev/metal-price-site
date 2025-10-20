@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import FloatingContacts from '@/components/ui/floating-contacts';
-import VisitorCounter from '@/components/VisitorCounter';
+
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import CatalogSection from '@/components/sections/CatalogSection';
@@ -198,7 +198,6 @@ const Index = () => {
       )}
 
       <FloatingContacts />
-      <VisitorCounter />
     </div>
   );
 };
