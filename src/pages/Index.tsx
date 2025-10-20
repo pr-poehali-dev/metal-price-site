@@ -29,19 +29,7 @@ const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [counters, setCounters] = useState({ years: 0, warehouse: 0, clients: 0 });
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [onlineUsers, setOnlineUsers] = useState(3);
 
-  useEffect(() => {
-    const getRandomOnlineCount = () => Math.floor(Math.random() * 8) + 2;
-    
-    setOnlineUsers(getRandomOnlineCount());
-
-    const interval = setInterval(() => {
-      setOnlineUsers(getRandomOnlineCount());
-    }, 15 * 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -164,24 +152,7 @@ const Index = () => {
 
       <HeroSection scrollToSection={scrollToSection} />
 
-      <section className="py-8 bg-background border-b">
-        <div className="container px-4">
-          <div className="flex justify-center">
-            <Card className="bg-background/95 backdrop-blur-sm border-2 shadow-lg">
-              <div className="p-4 flex items-center gap-4">
-                <div className="relative">
-                  <Icon name="Users" className="h-8 w-8 text-accent" />
-                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-1">Сейчас на сайте</p>
-                  <p className="text-2xl font-bold text-accent">{onlineUsers}</p>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
+
 
       <CatalogSection visibleSections={visibleSections} />
       <PriceSection visibleSections={visibleSections} />
@@ -219,10 +190,10 @@ const Index = () => {
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
-          className="fixed bottom-24 left-6 z-50 rounded-full h-14 w-14 p-0 shadow-lg animate-fade-in"
+          className="fixed bottom-24 left-6 z-50 rounded-full h-14 w-14 p-0 bg-transparent hover:bg-accent/10 border-2 border-accent/30 backdrop-blur-sm animate-fade-in"
           size="icon"
         >
-          <Icon name="ArrowUp" className="h-6 w-6" />
+          <Icon name="ArrowUp" className="h-6 w-6 text-accent" />
         </Button>
       )}
 
