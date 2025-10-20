@@ -104,6 +104,10 @@ const AnimatedBackground = () => {
       ctx.translate(gear.x, gear.y);
       ctx.rotate(gear.rotation);
       
+      const outerRadius = gear.radius;
+      const innerRadius = gear.radius * 0.6;
+      const toothHeight = gear.radius * 0.2;
+      
       const gearGradient = ctx.createRadialGradient(0, 0, innerRadius * 0.5, 0, 0, outerRadius);
       gearGradient.addColorStop(0, `rgba(139, 0, 0, ${gear.opacity * 0.3})`);
       gearGradient.addColorStop(0.5, `rgba(50, 50, 50, ${gear.opacity})`);
@@ -111,10 +115,6 @@ const AnimatedBackground = () => {
       
       ctx.strokeStyle = gearGradient;
       ctx.lineWidth = 2.5;
-      
-      const outerRadius = gear.radius;
-      const innerRadius = gear.radius * 0.6;
-      const toothHeight = gear.radius * 0.2;
       
       ctx.beginPath();
       for (let i = 0; i < gear.teeth * 2; i++) {
