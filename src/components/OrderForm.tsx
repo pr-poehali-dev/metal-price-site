@@ -107,60 +107,63 @@ const OrderForm: React.FC<OrderFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         <div className="space-y-2">
-          <Label htmlFor="name">Имя *</Label>
+          <Label htmlFor="name" className="text-sm md:text-base">Имя *</Label>
           <Input
             id="name"
             placeholder="Ваше имя"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="h-11 md:h-12 text-sm md:text-base"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="phone">Телефон *</Label>
+          <Label htmlFor="phone" className="text-sm md:text-base">Телефон *</Label>
           <Input
             id="phone"
             type="tel"
             placeholder="+7 (___) ___-__-__"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            className="h-11 md:h-12 text-sm md:text-base"
             required
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" className="text-sm md:text-base">Email</Label>
         <Input
           id="email"
           type="email"
           placeholder="your@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="h-11 md:h-12 text-sm md:text-base"
         />
       </div>
 
       {productName && (
-        <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
+        <div className="p-3 md:p-4 bg-accent/10 rounded-lg border border-accent/20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs md:text-sm">
             <div>
               <span className="text-muted-foreground">Продукция:</span>
-              <p className="font-semibold">{productName}</p>
+              <p className="font-semibold text-sm md:text-base truncate">{productName}</p>
             </div>
             {weight && (
               <div>
                 <span className="text-muted-foreground">Вес:</span>
-                <p className="font-semibold">{weight} кг</p>
+                <p className="font-semibold text-sm md:text-base">{weight} кг</p>
               </div>
             )}
             {calculatedPrice !== null && (
               <div>
                 <span className="text-muted-foreground">Стоимость:</span>
-                <p className="font-semibold text-accent">
+                <p className="font-semibold text-accent text-sm md:text-base">
                   {calculatedPrice.toLocaleString('ru-RU', { maximumFractionDigits: 2 })} ₽
                 </p>
               </div>
@@ -170,36 +173,37 @@ const OrderForm: React.FC<OrderFormProps> = ({
       )}
 
       <div className="space-y-2">
-        <Label htmlFor="comment">Комментарий</Label>
+        <Label htmlFor="comment" className="text-sm md:text-base">Комментарий</Label>
         <Textarea
           id="comment"
           placeholder="Дополнительная информация к заказу"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           rows={3}
+          className="text-sm md:text-base resize-none"
         />
       </div>
 
       <Button 
         type="submit" 
-        className="w-full" 
+        className="w-full h-11 md:h-12 text-sm md:text-base font-semibold" 
         size="lg"
         disabled={isSubmitting}
       >
         {isSubmitting ? (
           <>
-            <Icon name="Loader2" className="mr-2 h-5 w-5 animate-spin" />
+            <Icon name="Loader2" className="mr-2 h-4 w-4 md:h-5 md:w-5 animate-spin" />
             Отправка...
           </>
         ) : (
           <>
-            <Icon name="Send" className="mr-2 h-5 w-5" />
+            <Icon name="Send" className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             Отправить заказ
           </>
         )}
       </Button>
 
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-xs md:text-sm text-muted-foreground text-center px-2">
         Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
       </p>
     </form>
