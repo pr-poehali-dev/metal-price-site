@@ -22,62 +22,144 @@ const AnimatedBackground = () => {
       opacity: number;
     }> = [];
 
-    const stars: Array<{
+    const sparks: Array<{
       x: number;
       y: number;
+      vx: number;
+      vy: number;
+      life: number;
+      maxLife: number;
       size: number;
-      opacity: number;
-      twinkleSpeed: number;
-      twinklePhase: number;
+      color: string;
     }> = [];
 
-    for (let i = 0; i < 50; i++) {
+    const gears: Array<{
+      x: number;
+      y: number;
+      radius: number;
+      rotation: number;
+      rotationSpeed: number;
+      teeth: number;
+      opacity: number;
+    }> = [];
+
+    for (let i = 0; i < 30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 3 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.3 + 0.1,
       });
     }
 
-    for (let i = 0; i < 100; i++) {
-      stars.push({
+    for (let i = 0; i < 8; i++) {
+      gears.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        opacity: Math.random(),
-        twinkleSpeed: Math.random() * 0.02 + 0.01,
-        twinklePhase: Math.random() * Math.PI * 2,
+        radius: Math.random() * 30 + 20,
+        rotation: 0,
+        rotationSpeed: (Math.random() - 0.5) * 0.01,
+        teeth: Math.floor(Math.random() * 4 + 6),
+        opacity: Math.random() * 0.1 + 0.05,
       });
     }
 
+    const createSparks = () => {
+      if (Math.random() > 0.97) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        
+        for (let i = 0; i < 5; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 2 + 1;
+          
+          sparks.push({
+            x,
+            y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 1,
+            life: 60,
+            maxLife: 60,
+            size: Math.random() * 2 + 1,
+            color: Math.random() > 0.5 ? '255, 140, 0' : '212, 175, 55',
+          });
+        }
+      }
+    };
+
     let frame = 0;
+
+    const drawGear = (gear: typeof gears[0]) => {
+      ctx.save();
+      ctx.translate(gear.x, gear.y);
+      ctx.rotate(gear.rotation);
+      
+      ctx.strokeStyle = `rgba(100, 116, 139, ${gear.opacity})`;
+      ctx.lineWidth = 2;
+      
+      const outerRadius = gear.radius;
+      const innerRadius = gear.radius * 0.6;
+      const toothHeight = gear.radius * 0.2;
+      
+      ctx.beginPath();
+      for (let i = 0; i < gear.teeth * 2; i++) {
+        const angle = (i * Math.PI) / gear.teeth;
+        const radius = i % 2 === 0 ? outerRadius + toothHeight : outerRadius;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+        
+        if (i === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+      ctx.closePath();
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.arc(0, 0, innerRadius, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      ctx.restore();
+    };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       frame++;
+      createSparks();
 
-      stars.forEach((star) => {
-        star.twinklePhase += star.twinkleSpeed;
-        const twinkle = (Math.sin(star.twinklePhase) + 1) / 2;
+      gears.forEach((gear) => {
+        gear.rotation += gear.rotationSpeed;
+        drawGear(gear);
+      });
+
+      sparks.forEach((spark, index) => {
+        spark.x += spark.vx;
+        spark.y += spark.vy;
+        spark.vy += 0.1;
+        spark.life--;
+
+        const alpha = spark.life / spark.maxLife;
         
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity * twinkle * 0.8})`;
+        ctx.arc(spark.x, spark.y, spark.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${spark.color}, ${alpha * 0.8})`;
         ctx.fill();
 
-        if (twinkle > 0.7) {
-          ctx.beginPath();
-          ctx.moveTo(star.x - star.size * 2, star.y);
-          ctx.lineTo(star.x + star.size * 2, star.y);
-          ctx.moveTo(star.x, star.y - star.size * 2);
-          ctx.lineTo(star.x, star.y + star.size * 2);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${star.opacity * twinkle * 0.4})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
+        const gradient = ctx.createRadialGradient(spark.x, spark.y, 0, spark.x, spark.y, spark.size * 3);
+        gradient.addColorStop(0, `rgba(${spark.color}, ${alpha * 0.3})`);
+        gradient.addColorStop(1, `rgba(${spark.color}, 0)`);
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(spark.x, spark.y, spark.size * 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (spark.life <= 0) {
+          sparks.splice(index, 1);
         }
       });
 
@@ -88,10 +170,18 @@ const AnimatedBackground = () => {
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212, 175, 55, ${particle.opacity})`;
-        ctx.fill();
+        ctx.save();
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(frame * 0.02);
+        
+        ctx.fillStyle = `rgba(100, 116, 139, ${particle.opacity})`;
+        ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
+        
+        ctx.strokeStyle = `rgba(148, 163, 184, ${particle.opacity * 0.5})`;
+        ctx.lineWidth = 0.5;
+        ctx.strokeRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
+        
+        ctx.restore();
       });
 
       particles.forEach((p1, i) => {
@@ -100,11 +190,14 @@ const AnimatedBackground = () => {
           const dy = p1.y - p2.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
+          if (distance < 150) {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(212, 175, 55, ${0.15 * (1 - distance / 120)})`;
+            const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+            gradient.addColorStop(0, `rgba(100, 116, 139, ${0.2 * (1 - distance / 150)})`);
+            gradient.addColorStop(1, `rgba(148, 163, 184, ${0.1 * (1 - distance / 150)})`);
+            ctx.strokeStyle = gradient;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
