@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
+import ShareButtons from '@/components/ui/share-buttons';
 
 const metalProducts = [
   {
@@ -671,6 +672,9 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Отзывы клиентов</h2>
             <p className="text-muted-foreground">Что говорят о нас наши партнеры</p>
+            <div className="flex justify-center mt-6">
+              <ShareButtons />
+            </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
