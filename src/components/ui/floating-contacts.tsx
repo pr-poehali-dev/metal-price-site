@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import QuickMessages from '@/components/ui/quick-messages';
+import { addHoverSound } from '@/utils/buttonSound';
 
 const FloatingContacts: React.FC = () => {
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
+  const phoneButtonRef = useRef<HTMLButtonElement>(null);
+  const whatsappButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const cleanupPhone = addHoverSound(phoneButtonRef.current);
+    const cleanupWhatsapp = addHoverSound(whatsappButtonRef.current);
+    
+    return () => {
+      cleanupPhone?.();
+      cleanupWhatsapp?.();
+    };
+  }, []);
 
   const handleCall = () => {
     window.location.href = 'tel:+79185086059';
@@ -48,6 +62,7 @@ const FloatingContacts: React.FC = () => {
 
       <div className="fixed right-6 bottom-24 z-50 flex flex-col gap-4">
         <button
+          ref={phoneButtonRef}
           onClick={handleCall}
           className="relative group animate-bounce-gentle"
         >
@@ -61,6 +76,7 @@ const FloatingContacts: React.FC = () => {
         </button>
 
         <button
+          ref={whatsappButtonRef}
           onClick={handleWhatsAppClick}
           className="relative group animate-bounce-gentle"
           style={{ animationDelay: '0.3s' }}
@@ -124,6 +140,8 @@ const FloatingContacts: React.FC = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all resize-none"
                 />
               </div>
+
+              <QuickMessages onSelectMessage={(msg) => setMessage(msg)} />
 
               <Button
                 onClick={handleSendMessage}

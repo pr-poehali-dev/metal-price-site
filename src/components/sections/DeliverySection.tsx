@@ -8,7 +8,7 @@ interface DeliverySectionProps {
 
 const DeliverySection: React.FC<DeliverySectionProps> = ({ visibleSections }) => {
   return (
-    <section id="delivery" className={`py-16 bg-muted/30 transition-all duration-700 ${visibleSections.has('delivery') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section id="delivery" className={`py-16 bg-muted/30 ${visibleSections.has('delivery') ? 'animate-slide-up' : 'opacity-0'}`}>
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Доставка</h2>

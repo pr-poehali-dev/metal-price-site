@@ -23,7 +23,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
   handleSubmit
 }) => {
   return (
-    <section id="contacts" className={`py-16 transition-all duration-700 ${visibleSections.has('contacts') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section id="contacts" className={`py-16 ${visibleSections.has('contacts') ? 'animate-slide-up' : 'opacity-0'}`}>
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Оставить заявку</h2>

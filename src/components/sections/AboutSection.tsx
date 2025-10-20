@@ -9,7 +9,7 @@ interface AboutSectionProps {
 
 const AboutSection: React.FC<AboutSectionProps> = ({ visibleSections, counters }) => {
   return (
-    <section id="about" className={`py-16 bg-background transition-all duration-700 ${visibleSections.has('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <section id="about" className={`py-16 bg-background ${visibleSections.has('about') ? 'animate-slide-up' : 'opacity-0'}`}>
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">О компании</h2>
