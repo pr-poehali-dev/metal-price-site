@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import Icon from '@/components/ui/icon';
 import ShareButtons from '@/components/ui/share-buttons';
 import FloatingContacts from '@/components/ui/floating-contacts';
+import VisitorCounter from '@/components/VisitorCounter';
 
 const metalProducts = [
   {
@@ -1158,6 +1159,7 @@ const Index = () => {
       )}
 
       <FloatingContacts />
+      <VisitorCounter />
     </div>
   );
 };
