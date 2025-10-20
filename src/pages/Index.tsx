@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
 import ShareButtons from '@/components/ui/share-buttons';
+import FloatingContacts from '@/components/ui/floating-contacts';
 
 const metalProducts = [
   {
@@ -1148,13 +1149,15 @@ const Index = () => {
       {showScrollTop && (
         <Button
           size="icon"
-          className="fixed bottom-6 right-6 z-40 h-12 w-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+          className="fixed bottom-6 left-6 z-40 h-12 w-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
           onClick={scrollToTop}
           title="Наверх"
         >
           <Icon name="ArrowUp" className="h-5 w-5" />
         </Button>
       )}
+
+      <FloatingContacts />
     </div>
   );
 };
