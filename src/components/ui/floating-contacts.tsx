@@ -32,11 +32,11 @@ const FloatingContacts: React.FC = () => {
           className="relative group"
         >
           <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></div>
-          <div className="relative h-16 w-16 rounded-full overflow-hidden shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110">
+          <div className="relative h-16 w-16 rounded-full overflow-hidden shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 flex items-center justify-center">
             <img 
               src="https://cdn.poehali.dev/files/2fe97b00-fc76-4c22-b12e-6be6267750e0.jpeg"
               alt="WhatsApp"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-center scale-100"
             />
           </div>
           <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
