@@ -17,55 +17,63 @@ const PriceSection: React.FC<PriceSectionProps> = ({ visibleSections }) => {
           <p className="text-muted-foreground">Полный перечень продукции с актуальными ценами</p>
         </div>
 
-        <Card>
-          <CardContent className="p-6">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-3 px-4 font-semibold">Наименование</th>
-                    <th className="text-left py-3 px-4 font-semibold">Размер</th>
-                    <th className="text-right py-3 px-4 font-semibold">Цена, ₽/тонна</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {metalProducts.map((category) => (
-                    <React.Fragment key={category.category}>
-                      <tr className="bg-muted/50">
-                        <td colSpan={3} className="py-2 px-4 font-semibold text-sm">
-                          {category.category}
-                        </td>
-                      </tr>
-                      {category.items.map((item, idx) => (
-                        <tr 
-                          key={`${category.category}-${idx}`} 
-                          className="border-b hover:bg-muted/20 transition-colors opacity-0 animate-product-appear"
-                          style={{ 
-                            animationDelay: `${idx * 50}ms`,
-                            animationFillMode: 'forwards'
-                          }}
-                        >
-                          <td className="py-3 px-4">{item.name}</td>
-                          <td className="py-3 px-4 text-muted-foreground">{item.description}</td>
-                          <td className="py-3 px-4 text-right font-semibold">
-                            {item.price.toLocaleString('ru-RU')}
-                          </td>
+        <div className="grid gap-8 max-w-6xl mx-auto">
+          {metalProducts.map((category, catIdx) => (
+            <Card 
+              key={category.category}
+              className={`overflow-hidden border-0 shadow-lg ${visibleSections.has('price') ? 'animate-slide-up' : 'opacity-0'}`}
+              style={{ animationDelay: `${catIdx * 150}ms` }}
+            >
+              <div className="grid md:grid-cols-[300px,1fr]">
+                <div className="relative h-64 md:h-auto overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.category}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                    <h3 className="text-2xl font-bold text-white">{category.category}</h3>
+                  </div>
+                </div>
+                
+                <CardContent className="p-6">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left py-3 px-4 font-semibold">Наименование</th>
+                          <th className="text-left py-3 px-4 font-semibold">Размер</th>
+                          <th className="text-right py-3 px-4 font-semibold">Цена, ₽/т</th>
                         </tr>
-                      ))}
-                    </React.Fragment>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            
-            <div className="mt-6 text-center">
-              <Button>
-                <Icon name="Download" className="mr-2 h-4 w-4" />
-                Скачать прайс-лист (PDF)
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+                      </thead>
+                      <tbody>
+                        {category.items.map((item, idx) => (
+                          <tr 
+                            key={`${category.category}-${idx}`} 
+                            className="border-b hover:bg-muted/20 transition-colors"
+                          >
+                            <td className="py-3 px-4">{item.name}</td>
+                            <td className="py-3 px-4 text-muted-foreground text-sm">{item.description}</td>
+                            <td className="py-3 px-4 text-right font-semibold text-accent">
+                              {item.price.toLocaleString('ru-RU')}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Button size="lg">
+            <Icon name="Download" className="mr-2 h-4 w-4" />
+            Скачать полный прайс-лист (PDF)
+          </Button>
+        </div>
       </div>
     </section>
   );
