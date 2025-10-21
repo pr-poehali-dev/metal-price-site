@@ -14,21 +14,24 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({ visibleSections }) => {
       company: 'ООО "СтройКомплект"',
       text: 'Работаем с Краев Металл Компани уже 3 года. Всегда качественная продукция, быстрая доставка и адекватные цены. Рекомендую!',
       rating: 5,
-      date: '2024-09-15'
+      date: '2024-09-15',
+      avatar: 'https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/c4353eca-bc63-4d72-984c-e25fc8838b54.jpg'
     },
     {
       name: 'Мария Соколова',
       company: 'ИП Соколова М.А.',
       text: 'Отличная компания! Помогли подобрать нужный металлопрокат, оформили все документы. Особенно порадовала оперативность менеджеров.',
       rating: 5,
-      date: '2024-08-22'
+      date: '2024-08-22',
+      avatar: 'https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/a7db5ced-99c5-400f-b0bd-7134539d30f4.jpg'
     },
     {
       name: 'Алексей Краснов',
       company: 'АО "МеталлСтрой"',
       text: 'Большой ассортимент, все позиции в наличии на складе. Цены конкурентные, доставка точно в срок. Очень довольны сотрудничеством!',
       rating: 5,
-      date: '2024-10-01'
+      date: '2024-10-01',
+      avatar: 'https://cdn.poehali.dev/projects/e197f910-0d69-4ea7-89c6-078a665bf1e2/files/074ecbf7-d483-4252-afbe-e4f43ad80f73.jpg'
     }
   ];
 
@@ -73,9 +76,11 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({ visibleSections }) => {
             <Card key={idx} className="card-3d-hover relative overflow-hidden border-0 bg-white shadow-lg">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Icon name="User" className="h-6 w-6 text-accent" />
-                  </div>
+                  <img 
+                    src={review.avatar} 
+                    alt={review.name}
+                    className="h-12 w-12 rounded-full object-cover border-2 border-accent/20"
+                  />
                   <div>
                     <p className="font-semibold">{review.name}</p>
                     <p className="text-sm text-muted-foreground">{review.company}</p>
