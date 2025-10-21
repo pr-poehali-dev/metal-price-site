@@ -86,15 +86,24 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({ visibleSections }) => {
                     <p className="text-sm text-muted-foreground">{review.company}</p>
                   </div>
                 </div>
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon 
-                      key={i} 
-                      name="Star" 
-                      className={`h-5 w-5 fill-yellow-400 text-yellow-400 ${visibleSections.has('reviews') ? 'star-pop' : 'opacity-0'}`}
-                      style={{ animationDelay: `${idx * 150 + i * 100}ms` }}
-                    />
-                  ))}
+                <div className="flex justify-between items-center mb-3">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon 
+                        key={i} 
+                        name="Star" 
+                        className={`h-5 w-5 fill-yellow-400 text-yellow-400 ${visibleSections.has('reviews') ? 'star-pop' : 'opacity-0'}`}
+                        style={{ animationDelay: `${idx * 150 + i * 100}ms` }}
+                      />
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {new Date(review.date).toLocaleDateString('ru-RU', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </p>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   {review.text}
