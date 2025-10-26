@@ -145,8 +145,8 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                   <Icon name="Mail" className="h-6 w-6 text-accent mt-1" />
                   <div>
                     <p className="font-semibold mb-1">Email</p>
-                    <a href="mailto:KraevK.working@yandex.com" className="text-sm text-muted-foreground hover:text-accent transition-colors block">
-                      KraevK.working@yandex.com
+                    <a href="mailto:metall-kmk@yandex.ru" className="text-sm text-muted-foreground hover:text-accent transition-colors block">
+                      metall-kmk@yandex.ru
                     </a>
                   </div>
                 </div>

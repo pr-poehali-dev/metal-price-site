@@ -122,7 +122,7 @@ const Index = () => {
   const sendToEmail = () => {
     const subject = 'Новая заявка с сайта Краев Металл Компани';
     const body = `Имя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\n\nСообщение:\n${formData.message}`;
-    const mailtoUrl = `mailto:KraevK.working@yandex.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:metall-kmk@yandex.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
   };
 
@@ -224,7 +224,7 @@ const Index = () => {
               <h3 className="font-semibold mb-3 text-primary-foreground">Контакты</h3>
               <div className="space-y-1 text-sm text-primary-foreground/70">
                 <p>Телефон: +7 (918) 508-60-59</p>
-                <p>Email: KraevK.working@yandex.com</p>
+                <p>Email: metall-kmk@yandex.ru</p>
                 <p>Адрес: г. Краснодар</p>
               </div>
             </div>

@@ -146,7 +146,7 @@ const Privacy: React.FC = () => {
                 По вопросам обработки персональных данных обращайтесь:
               </p>
               <ul className="list-none space-y-1 text-muted-foreground ml-4 mt-2">
-                <li>Email: KraevK.working@yandex.com</li>
+                <li>Email: metall-kmk@yandex.ru</li>
                 <li>Телефон: +7 (918) 508-60-59</li>
                 <li>Адрес: г. Краснодар (точный адрес уточняйте у оператора)</li>
               </ul>
