@@ -148,7 +148,7 @@ const Privacy: React.FC = () => {
               <ul className="list-none space-y-1 text-muted-foreground ml-4 mt-2">
                 <li>Email: metall-kmk@yandex.ru</li>
                 <li>Телефон: +7 (989) 150-05-55</li>
-                <li>Адрес: г. Дмитров</li>
+                <li>Адрес: г. Дмитров, ул. Советская д. 5, офис 83</li>
               </ul>
             </section>
 

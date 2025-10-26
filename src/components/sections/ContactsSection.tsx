@@ -155,7 +155,8 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                   <Icon name="MapPin" className="h-6 w-6 text-accent mt-1" />
                   <div>
                     <p className="font-semibold mb-1">Адрес</p>
-                    <p className="text-sm text-muted-foreground">г. Дмитров</p>
+                    <p className="text-sm text-muted-foreground">г. Дмитров, ул. Советская д. 5</p>
+                    <p className="text-sm text-muted-foreground">офис 83</p>
                   </div>
                 </div>
 

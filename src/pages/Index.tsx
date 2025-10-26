@@ -226,7 +226,7 @@ const Index = () => {
               <div className="space-y-1 text-sm text-primary-foreground/70">
                 <p>Телефон: +7 (989) 150-05-55</p>
                 <p>Email: metall-kmk@yandex.ru</p>
-                <p>Адрес: г. Дмитров</p>
+                <p>Адрес: г. Дмитров, ул. Советская д. 5, офис 83</p>
               </div>
             </div>
             <div>
