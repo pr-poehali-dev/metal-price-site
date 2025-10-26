@@ -22,7 +22,7 @@ const FloatingContacts: React.FC = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = 'tel:+79185086059';
+    window.location.href = 'tel:+79891500555';
   };
 
   const handleWhatsAppClick = () => {
@@ -31,7 +31,7 @@ const FloatingContacts: React.FC = () => {
 
   const handleSendMessage = () => {
     const text = encodeURIComponent(`Привет! Меня зовут ${name}. ${message}`);
-    window.open(`https://wa.me/79185086059?text=${text}`, '_blank');
+    window.open(`https://wa.me/79891500555?text=${text}`, '_blank');
     setShowWhatsAppModal(false);
     setMessage('');
     setName('');

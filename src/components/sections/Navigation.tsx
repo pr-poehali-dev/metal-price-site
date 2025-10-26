@@ -69,15 +69,15 @@ const Navigation: React.FC<NavigationProps> = ({
 
         <div className="hidden md:flex items-center gap-3">
           <Button size="sm" variant="ghost" className="hover:bg-green-50 hover:text-green-600 border border-transparent hover:border-green-200" asChild>
-            <a href="https://wa.me/79185086059" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/79891500555" target="_blank" rel="noopener noreferrer">
               <Icon name="MessageCircle" className="mr-2 h-4 w-4 text-green-500" />
               WhatsApp
             </a>
           </Button>
           <Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all" asChild>
-            <a href="tel:+79185086059">
+            <a href="tel:+79891500555">
               <Icon name="Phone" className="mr-2 h-4 w-4" />
-              +7 (918) 508-60-59
+              +7 (989) 150-05-55
             </a>
           </Button>
         </div>
@@ -131,22 +131,22 @@ const Navigation: React.FC<NavigationProps> = ({
             </button>
             <div className="flex gap-2 mt-2">
               <Button variant="outline" className="flex-1" asChild>
-                <a href="https://wa.me/79185086059" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/79891500555" target="_blank" rel="noopener noreferrer">
                   <Icon name="MessageCircle" className="mr-2 h-4 w-4 text-green-500" />
                   WhatsApp
                 </a>
               </Button>
               <Button variant="outline" className="flex-1" asChild>
-                <a href="https://t.me/+79185086059" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/+79891500555" target="_blank" rel="noopener noreferrer">
                   <Icon name="Send" className="mr-2 h-4 w-4 text-blue-500" />
                   Telegram
                 </a>
               </Button>
             </div>
             <Button className="w-full mt-2" asChild>
-              <a href="tel:+79185086059">
+              <a href="tel:+79891500555">
                 <Icon name="Phone" className="mr-2 h-4 w-4" />
-                +7 (918) 508-60-59
+                +7 (989) 150-05-55
               </a>
             </Button>
           </div>

@@ -165,7 +165,7 @@ const Terms: React.FC = () => {
               <ul className="list-none space-y-1 text-muted-foreground ml-4 mt-2">
                 <li>Наименование: ООО «Краев Металл Компани»</li>
                 <li>Email: metall-kmk@yandex.ru</li>
-                <li>Телефон: +7 (918) 508-60-59</li>
+                <li>Телефон: +7 (989) 150-05-55</li>
                 <li>Адрес: г. Краснодар (точный адрес уточняйте у оператора)</li>
               </ul>
             </section>

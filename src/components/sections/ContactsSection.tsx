@@ -135,8 +135,8 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                   <Icon name="Phone" className="h-6 w-6 text-accent mt-1" />
                   <div>
                     <p className="font-semibold mb-1">Телефон</p>
-                    <a href="tel:+79185086059" className="text-sm text-muted-foreground hover:text-accent transition-colors block">
-                      +7 (918) 508-60-59
+                    <a href="tel:+79891500555" className="text-sm text-muted-foreground hover:text-accent transition-colors block">
+                      +7 (989) 150-05-55
                     </a>
                   </div>
                 </div>
@@ -155,8 +155,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                   <Icon name="MapPin" className="h-6 w-6 text-accent mt-1" />
                   <div>
                     <p className="font-semibold mb-1">Адрес</p>
-                    <p className="text-sm text-muted-foreground">г. Москва</p>
-                    <p className="text-sm text-muted-foreground">ул. Промышленная, 15</p>
+                    <p className="text-sm text-muted-foreground">г. Дмитров</p>
                   </div>
                 </div>
 
@@ -183,7 +182,7 @@ const ContactsSection: React.FC<ContactsSectionProps> = ({
                     <Button
                       variant="outline"
                       className="border-green-600 text-green-600 hover:bg-green-50"
-                      onClick={() => window.open('https://wa.me/79185086059', '_blank')}
+                      onClick={() => window.open('https://wa.me/79891500555', '_blank')}
                     >
                       <Icon name="MessageCircle" className="mr-2 h-4 w-4" />
                       Написать в WhatsApp

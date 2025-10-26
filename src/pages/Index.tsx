@@ -115,7 +115,7 @@ const Index = () => {
 
   const sendToWhatsApp = () => {
     const message = `Новая заявка с сайта Краев Металл Компани\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email}\nСообщение: ${formData.message}`;
-    const whatsappUrl = `https://wa.me/79185086059?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/79891500555?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -216,16 +216,17 @@ const Index = () => {
                 Металлопрокат от производителя с 2010 года
               </p>
               <p className="text-xs text-primary-foreground/60">
-                ОГРН: уточняйте у менеджера<br />
-                ИНН: уточняйте у менеджера
+                ОГРН: 1255000024674<br />
+                ИНН: 5007125512<br />
+                КПП: 500701001
               </p>
             </div>
             <div>
               <h3 className="font-semibold mb-3 text-primary-foreground">Контакты</h3>
               <div className="space-y-1 text-sm text-primary-foreground/70">
-                <p>Телефон: +7 (918) 508-60-59</p>
+                <p>Телефон: +7 (989) 150-05-55</p>
                 <p>Email: metall-kmk@yandex.ru</p>
-                <p>Адрес: г. Краснодар</p>
+                <p>Адрес: г. Дмитров</p>
               </div>
             </div>
             <div>
